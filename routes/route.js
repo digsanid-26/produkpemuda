@@ -34,7 +34,8 @@ route.get('/profile', (req, res, next) => {
 // History
 route.get('/history', (req, res, next) => {
   const settings = readJSON('settings.json');
-  res.render('history', { layout: 'partials/base', settings });
+  const services = readJSON('services.json').filter(s => s.published).sort((a, b) => a.order - b.order);
+  res.render('history', { layout: 'partials/base', settings, products: services });
 })
 
 // Produk
@@ -140,6 +141,12 @@ route.get('/news/:slug', (req, res, next) => {
 route.get('/contact', (req, res, next) => {
   const settings = readJSON('settings.json');
   res.render('contact', { settings });
+})
+
+// Contact Us (New Page with proper header)
+route.get('/contact-us', (req, res, next) => {
+  const settings = readJSON('settings.json');
+  res.render('contact-us', { settings });
 })
 
 // CSR
