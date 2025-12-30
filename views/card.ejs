@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= card.name %> - PT Produk Pemuda Santara</title>
+    <link rel="shortcut icon" href="/img/logo/fav-logo1.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4A0E19;
+            --secondary-color: #F7F5F2;
+            --accent-color: #C6A667;
+            --text-color: #1C1C1C;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #6b1a2a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .card-container {
+            background: var(--secondary-color);
+            border-radius: 24px;
+            max-width: 400px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+        
+        .card-header-bg {
+            background: var(--primary-color);
+            height: 120px;
+            position: relative;
+        }
+        
+        .card-header-bg::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: var(--secondary-color);
+            border-radius: 40px 40px 0 0;
+        }
+        
+        .photo-wrapper {
+            position: relative;
+            z-index: 10;
+            margin-top: -80px;
+            text-align: center;
+        }
+        
+        .photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid var(--secondary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            background: var(--secondary-color);
+        }
+        
+        .card-body {
+            padding: 20px 30px 30px;
+            text-align: center;
+        }
+        
+        .name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .position {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .summary {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+        
+        .contact-info {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(74, 14, 25, 0.1);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+        
+        .contact-item:hover {
+            color: var(--primary-color);
+        }
+        
+        .contact-item .icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item .text {
+            text-align: left;
+        }
+        
+        .contact-item .label {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-item .value {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .save-contact {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .save-contact:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .company-badge {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(74, 14, 25, 0.1);
+        }
+        
+        .company-badge img {
+            height: 40px;
+            opacity: 0.8;
+        }
+        
+        .company-badge p {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 8px;
+        }
+        
+        @media (max-width: 480px) {
+            .card-container {
+                border-radius: 20px;
+            }
+            
+            .card-body {
+                padding: 15px 20px 25px;
+            }
+            
+            .name {
+                font-size: 1.5rem;
+            }
+            
+            .photo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card-header-bg"></div>
+        
+        <div class="photo-wrapper">
+            <img src="<%= card.photo || '/img/team/team-1.jpg' %>" alt="<%= card.name %>" class="photo">
+        </div>
+        
+        <div class="card-body">
+            <h1 class="name"><%= card.name %></h1>
+            <p class="position"><%= card.position %></p>
+            
+            <p class="summary"><%= card.summary %></p>
+            
+            <div class="contact-info">
+                <a href="mailto:<%= card.email %>" class="contact-item">
+                    <div class="icon">
+                        <i class="bi bi-envelope"></i>
+                    </div>
+                    <div class="text">
+                        <div class="label">Email</div>
+                        <div class="value"><%= card.email %></div>
+                    </div>
+                </a>
+                
+                <a href="tel:<%= card.phone.replace(/\s/g, '') %>" class="contact-item">
+                    <div class="icon">
+                        <i class="bi bi-telephone"></i>
+                    </div>
+                    <div class="text">
+                        <div class="label">Telepon</div>
+                        <div class="value"><%= card.phone %></div>
+                    </div>
+                </a>
+            </div>
+            
+            <% if (card.social && (card.social.linkedin || card.social.instagram || card.social.twitter)) { %>
+            <div class="social-links">
+                <% if (card.social.linkedin) { %>
+                <a href="<%= card.social.linkedin %>" target="_blank" title="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <% } %>
+                <% if (card.social.instagram) { %>
+                <a href="<%= card.social.instagram %>" target="_blank" title="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <% } %>
+                <% if (card.social.twitter) { %>
+                <a href="<%= card.social.twitter %>" target="_blank" title="Twitter">
+                    <i class="bi bi-twitter-x"></i>
+                </a>
+                <% } %>
+            </div>
+            <% } %>
+            
+            <a href="/" class="save-contact">
+                <i class="bi bi-building"></i> Kunjungi Website
+            </a>
+            
+            <div class="company-badge">
+                <p>PT Produk Pemuda Santara</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

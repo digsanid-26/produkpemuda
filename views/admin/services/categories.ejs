@@ -1,0 +1,78 @@
+<% locals.page = 'services' %>
+
+<div class="top-bar">
+    <h1 class="page-title">Kategori Layanan</h1>
+    <a href="/admin/services" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Kembali ke Layanan
+    </a>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header"><%= editCategory ? 'Edit Kategori' : 'Tambah Kategori Baru' %></div>
+            <div class="card-body">
+                <form method="POST" action="/admin/service-categories/<%= editCategory ? 'edit/' + editCategory.id : 'create' %>">
+                    <div class="mb-3">
+                        <label class="form-label">Nama Kategori <span class="text-danger">*</span></label>
+                        <input type="text" name="name" class="form-control" value="<%= editCategory ? editCategory.name : '' %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Deskripsi</label>
+                        <textarea name="description" class="form-control" rows="2"><%= editCategory ? editCategory.description : '' %></textarea>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle"></i> <%= editCategory ? 'Update' : 'Simpan' %>
+                        </button>
+                        <% if (editCategory) { %>
+                        <a href="/admin/service-categories" class="btn btn-outline-secondary">Batal</a>
+                        <% } %>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-header">Daftar Kategori</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nama</th>
+                                <th>Slug</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (categories.length === 0) { %>
+                            <tr>
+                                <td colspan="4" class="text-center text-muted py-4">Belum ada kategori</td>
+                            </tr>
+                            <% } else { %>
+                            <% categories.forEach(cat => { %>
+                            <tr>
+                                <td><%= cat.id %></td>
+                                <td><strong><%= cat.name %></strong></td>
+                                <td><code><%= cat.slug %></code></td>
+                                <td>
+                                    <a href="/admin/service-categories/edit/<%= cat.id %>" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <a href="/admin/service-categories/delete/<%= cat.id %>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Yakin ingin menghapus kategori ini?')">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

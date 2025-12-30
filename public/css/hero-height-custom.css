@@ -1,0 +1,21 @@
+/* Hero Section Custom Height */
+.hero5-section-area {
+    min-height: 900px !important;
+}
+
+@media (max-width: 991px) {
+    .hero5-section-area {
+        min-height: 600px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero5-section-area {
+        min-height: 500px !important;
+    }
+}
+
+.hero5-slider-section .hero5-section-area {
+    display: flex !important;
+    align-items: center !important;
+}

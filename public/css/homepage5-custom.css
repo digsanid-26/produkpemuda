@@ -1,0 +1,141 @@
+/* ========== HOMEPAGE 5 CUSTOM STYLES ========== */
+/* PT Produk Pemuda Santara - Index5 Style Customization */
+
+/* Header */
+.homepage5-body .vl-transparent-header {
+  background: var(--primary-color) !important;
+}
+
+.homepage5-body .vl-transparent-header .vl-logo img {
+  filter: brightness(0) invert(1) !important;
+}
+
+.homepage5-body .vl-main-menu ul > li > a {
+  color: var(--white) !important;
+}
+
+.homepage5-body .vl-main-menu ul > li:hover a,
+.homepage5-body .vl-main-menu ul > li a.nav-link.active {
+  color: var(--accent-color) !important;
+}
+
+.homepage5-body .vl-transparent-header .vl-hero-btn .head-btn .search-icon a img {
+  filter: none !important;
+}
+
+.homepage5-body .vl-transparent-header .vl-hero-btn .head-btn ul li a {
+  background: var(--primary-color) !important;
+  color: var(--white) !important;
+}
+
+.homepage5-body .vl-transparent-header .vl-hero-btn .head-btn ul li a:hover {
+  background: var(--accent-color) !important;
+  color: var(--primary-color) !important;
+}
+
+/* Hero Section */
+.hero5-section-area {
+  background-color: var(--primary-color) !important;
+}
+
+.hero5-section-area .hero5-heading h5 {
+  color: var(--accent-color) !important;
+}
+
+.hero5-section-area .hero5-heading h1 {
+  color: var(--white) !important;
+}
+
+.hero5-section-area .hero5-heading p {
+  color: var(--secondary-color) !important;
+}
+
+.hero5-section-area .vl-btn5 {
+  background-color: none !important;
+  color: var(--primary-color) !important;
+  border: none !important;
+}
+
+.hero5-section-area .vl-btn5:hover {
+  background-color: none!important;
+  color: var(--primary-color) !important;
+}
+
+/* Contact Form Box */
+.header-contact-boxarea {
+  background-color: var(--white) !important;
+  border: 2px solid var(--accent-color) !important;
+}
+
+.header-contact-boxarea h3 {
+  color: var(--primary-color) !important;
+}
+
+.header-contact-boxarea input,
+.header-contact-boxarea textarea,
+.header-contact-boxarea select {
+  border-color: rgba(74, 14, 25, 0.2) !important;
+}
+
+.header-contact-boxarea input:focus,
+.header-contact-boxarea textarea:focus,
+.header-contact-boxarea select:focus {
+  border-color: var(--accent-color) !important;
+}
+
+.header-contact-boxarea .vl-btn5 {
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+}
+
+.header-contact-boxarea .vl-btn5:hover {
+  background-color: var(--accent-color) !important;
+  color: var(--primary-color) !important;
+}
+
+/* Mobile Menu */
+.homepage5-body .vl-offcanvas {
+  background-color: var(--primary-color) !important;
+}
+
+.homepage5-body .vl-offcanvas-info span a,
+.homepage5-body .vl-offcanvas-social a,
+.homepage5-body .vl-offcanvas-sm-title {
+  color: var(--secondary-color) !important;
+}
+
+.homepage5-body .vl-offcanvas-social a:hover {
+  color: var(--accent-color) !important;
+}
+
+.homepage5-body .vl-offcanvas-menu ul li a {
+  color: var(--white) !important;
+}
+
+.homepage5-body .vl-offcanvas-menu ul li a:hover {
+  color: var(--accent-color) !important;
+}
+
+.homepage5-body .vl-offcanvas .vl-offcanvas-logo {
+  filter: brightness(0) invert(1) !important;
+}
+
+.homepage5-body .vl-offcanvas .vl-offcanvas-close button {
+  color: var(--white) !important;
+}
+
+/* Sticky Header */
+.homepage5-body #vl-header-sticky.sticky {
+  background-color: var(--primary-color) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Header Action */
+.homepage5-body .vl-header-action-item {
+  border-color: var(--white) !important;
+  color: var(--white) !important;
+}
+
+.homepage5-body .vl-header-action-item button {
+  color: var(--white) !important;
+}

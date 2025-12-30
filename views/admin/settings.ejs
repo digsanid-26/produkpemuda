@@ -1,0 +1,87 @@
+<% locals.page = 'settings' %>
+
+<div class="top-bar">
+    <h1 class="page-title">Pengaturan Website</h1>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="POST" action="/admin/settings">
+            <h5 class="mb-3">Informasi Website</h5>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Nama Perusahaan</label>
+                        <input type="text" name="site_name" class="form-control" value="<%= settings.site.name %>" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Tagline</label>
+                        <input type="text" name="site_tagline" class="form-control" value="<%= settings.site.tagline %>" required>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label class="form-label">Deskripsi</label>
+                        <textarea name="site_description" class="form-control" rows="3" required><%= settings.site.description %></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="mb-3">Kontak</h5>
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="site_email" class="form-control" value="<%= settings.site.email %>" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label class="form-label">Telepon</label>
+                        <input type="text" name="site_phone" class="form-control" value="<%= settings.site.phone %>" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label class="form-label">Alamat</label>
+                        <input type="text" name="site_address" class="form-control" value="<%= settings.site.address %>" required>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="mb-3">Media Sosial</h5>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Facebook</label>
+                        <input type="url" name="social_facebook" class="form-control" value="<%= settings.site.social.facebook %>">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Instagram</label>
+                        <input type="url" name="social_instagram" class="form-control" value="<%= settings.site.social.instagram %>">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Twitter</label>
+                        <input type="url" name="social_twitter" class="form-control" value="<%= settings.site.social.twitter %>">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">LinkedIn</label>
+                        <input type="url" name="social_linkedin" class="form-control" value="<%= settings.site.social.linkedin %>">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-circle"></i> Simpan Pengaturan
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Makanan & Minuman",
+    "slug": "makanan-minuman",
+    "description": "Produk makanan dan minuman",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": 2,
+    "name": "Kecantikan & Perawatan",
+    "slug": "kecantikan-perawatan",
+    "description": "Produk kecantikan dan perawatan tubuh",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": 3,
+    "name": "Teknologi & Digital",
+    "slug": "teknologi-digital",
+    "description": "Layanan teknologi dan digital",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": 4,
+    "name": "Bahan Pangan",
+    "slug": "bahan-pangan",
+    "description": "Bahan pangan dan kebutuhan dapur",
+    "createdAt": "2024-01-01"
+  }
+]

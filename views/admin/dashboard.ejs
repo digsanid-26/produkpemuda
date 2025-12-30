@@ -1,0 +1,117 @@
+<% locals.page = 'dashboard' %>
+
+<div class="top-bar">
+    <h1 class="page-title">Dashboard</h1>
+    <div class="user-info">
+        <span class="text-muted">Selamat datang, </span>
+        <strong><%= admin.name %></strong>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-3 col-6">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="number"><%= stats.services || 0 %></div>
+                    <div class="label">Produk</div>
+                </div>
+                <div class="icon" style="background: #0ea5e9;">
+                    <i class="bi bi-box-seam"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="number"><%= stats.projects || 0 %></div>
+                    <div class="label">Project</div>
+                </div>
+                <div class="icon green">
+                    <i class="bi bi-folder"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="number"><%= stats.articles %></div>
+                    <div class="label">Total Artikel</div>
+                </div>
+                <div class="icon blue">
+                    <i class="bi bi-newspaper"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="number"><%= stats.testimonials %></div>
+                    <div class="label">Total Testimoni</div>
+                </div>
+                <div class="icon orange">
+                    <i class="bi bi-chat-quote"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-lightning"></i> Quick Actions
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="/admin/services/create" class="btn btn-outline-info">
+                        <i class="bi bi-plus-circle"></i> Tambah Produk Baru
+                    </a>
+                    <a href="/admin/projects/create" class="btn btn-outline-success">
+                        <i class="bi bi-plus-circle"></i> Tambah Project Baru
+                    </a>
+                    <a href="/admin/articles/create" class="btn btn-outline-primary">
+                        <i class="bi bi-plus-circle"></i> Tambah Artikel Baru
+                    </a>
+                    <a href="/admin/testimonials/create" class="btn btn-outline-warning">
+                        <i class="bi bi-plus-circle"></i> Tambah Testimoni Baru
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-info-circle"></i> Informasi Website
+            </div>
+            <div class="card-body">
+                <table class="table table-borderless mb-0">
+                    <tr>
+                        <td class="text-muted">Nama Perusahaan</td>
+                        <td><strong>PT Produk Pemuda Santara</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="text-muted">Website</td>
+                        <td><a href="http://produkpemuda.com" target="_blank">produkpemuda.com</a></td>
+                    </tr>
+                    <tr>
+                        <td class="text-muted">Framework</td>
+                        <td>Node.js + Express + EJS</td>
+                    </tr>
+                    <tr>
+                        <td class="text-muted">Port</td>
+                        <td>4000</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

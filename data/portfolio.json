@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Minuman Asem Jawa",
+    "slug": "minuman-asem-jawa",
+    "description": "Minuman tradisional dengan cita rasa khas, diolah secara higienis, dan dikemas modern agar mudah dinikmati oleh semua kalangan.",
+    "image": "/img/project/project-1.jpg",
+    "category": "Minuman",
+    "client": "PT Produk Pemuda Santara",
+    "date": "2024-01-01",
+    "published": true
+  },
+  {
+    "id": 2,
+    "title": "Gula Jawa Premium",
+    "slug": "gula-jawa-premium",
+    "description": "Produk pemanis alami dengan kualitas tinggi, cocok untuk kebutuhan dapur, minuman, dan berbagai olahan kuliner.",
+    "image": "/img/project/project-2.jpg",
+    "category": "Makanan",
+    "client": "PT Produk Pemuda Santara",
+    "date": "2024-01-01",
+    "published": true
+  },
+  {
+    "id": 3,
+    "title": "Keripik (Coming Soon)",
+    "slug": "keripik-coming-soon",
+    "description": "Produk camilan yang sedang dalam tahap pengembangan sebagai ekspansi lini makanan ringan.",
+    "image": "/img/project/project-3.jpg",
+    "category": "Makanan Ringan",
+    "client": "PT Produk Pemuda Santara",
+    "date": "2024-12-01",
+    "published": true
+  }
+]

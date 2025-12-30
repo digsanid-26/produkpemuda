@@ -1,0 +1,149 @@
+<%# SEO Meta Tags for Service Single Page %>
+<% 
+  const metaTitle = service.seo && service.seo.metaTitle ? service.seo.metaTitle : service.title + ' - ' + (settings.site ? settings.site.name : 'Produk Pemuda Santara');
+  const metaDescription = service.seo && service.seo.metaDescription ? service.seo.metaDescription : service.shortDescription;
+  const metaKeywords = service.seo && service.seo.metaKeywords ? service.seo.metaKeywords : '';
+  const canonical = service.seo && service.seo.canonical ? service.seo.canonical : '';
+  const ogImage = service.seo && service.seo.ogImage ? service.seo.ogImage : service.featuredImage;
+%>
+
+<%- contentFor('html_attribute') %>
+
+<%- contentFor('body_attribute') %>
+
+<%- contentFor('extra_css') %>
+
+<%- contentFor('head') %>
+<title><%= metaTitle %></title>
+<meta name="description" content="<%= metaDescription %>">
+<% if (metaKeywords) { %><meta name="keywords" content="<%= metaKeywords %>"><% } %>
+<% if (canonical) { %><link rel="canonical" href="<%= canonical %>"><% } %>
+
+<!-- Open Graph -->
+<meta property="og:title" content="<%= metaTitle %>">
+<meta property="og:description" content="<%= metaDescription %>">
+<meta property="og:image" content="<%= ogImage %>">
+<meta property="og:type" content="article">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= metaTitle %>">
+<meta name="twitter:description" content="<%= metaDescription %>">
+<meta name="twitter:image" content="<%= ogImage %>">
+
+<% if (service.seo && service.seo.schema) { %>
+<script type="application/ld+json">
+<%= service.seo.schema %>
+</script>
+<% } else { %>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "<%= service.title %>",
+  "description": "<%= service.shortDescription %>",
+  "image": "<%= service.featuredImage %>",
+  "brand": {
+    "@type": "Brand",
+    "name": "<%= settings.site ? settings.site.name : 'Produk Pemuda Santara' %>"
+  }
+}
+</script>
+<% } %>
+
+<%- contentFor('content') %>
+<%- include('partials/header/navbar5') %>
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-section-area" style="background-image: url(<%= service.featuredImage %>); background-size: cover; background-position: center;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-area text-center">
+          <h2><%= service.title %></h2>
+          <div class="space20"></div>
+          <ul>
+            <li><a href="/">Beranda</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><a href="/produk">Produk</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><%= service.title %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Service Single Content -->
+<div class="service-single-section sp1">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="service-single-content">
+          <div class="service-featured-image mb-4">
+            <img src="<%= service.featuredImage %>" alt="<%= service.title %>" class="img-fluid rounded" style="width: 100%; max-height: 400px; object-fit: cover;">
+          </div>
+          
+          <div class="service-meta mb-4">
+            <% if (category) { %>
+            <span class="badge bg-primary me-2"><%= category.name %></span>
+            <% } %>
+            <% if (serviceTags && serviceTags.length > 0) { %>
+              <% serviceTags.forEach(tag => { %>
+              <span class="badge bg-secondary me-1"><%= tag.name %></span>
+              <% }) %>
+            <% } %>
+          </div>
+
+          <div class="service-content">
+            <%- service.content %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="service-sidebar">
+          <!-- Service Info Card -->
+          <div class="sidebar-widget mb-4" style="background: #f8f9fa; padding: 25px; border-radius: 12px;">
+            <h4 style="margin-bottom: 20px; color: #1e3a8a;">Informasi Layanan</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <% if (category) { %>
+              <li style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">
+                <strong>Kategori:</strong> <%= category.name %>
+              </li>
+              <% } %>
+              <li style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">
+                <strong>Terakhir Update:</strong> <%= service.updatedAt %>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related Services -->
+          <% if (relatedServices && relatedServices.length > 0) { %>
+          <div class="sidebar-widget" style="background: #f8f9fa; padding: 25px; border-radius: 12px;">
+            <h4 style="margin-bottom: 20px; color: #1e3a8a;">Layanan Terkait</h4>
+            <% relatedServices.forEach(related => { %>
+            <div class="related-service-item mb-3" style="display: flex; gap: 15px; align-items: center;">
+              <img src="<%= related.featuredImage %>" alt="<%= related.title %>" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+              <div>
+                <a href="/produk/<%= related.slug %>" style="font-weight: 600; color: #1e293b; text-decoration: none;"><%= related.title %></a>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+          <% } %>
+
+          <!-- CTA -->
+          <div class="sidebar-widget mt-4" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 25px; border-radius: 12px; text-align: center;">
+            <h4 style="color: white; margin-bottom: 15px;">Tertarik dengan produk ini?</h4>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px;">Hubungi kami untuk informasi lebih lanjut</p>
+            <a href="/contact" class="btn" style="background: white; color: #1e3a8a; padding: 12px 30px; border-radius: 8px; font-weight: 600; text-decoration: none;">Hubungi Kami</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- contentFor('extra_javascript') %>

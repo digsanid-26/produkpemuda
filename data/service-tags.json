@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Produk Unggulan",
+    "slug": "produk-unggulan",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": 2,
+    "name": "Minuman",
+    "slug": "minuman",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": 3,
+    "name": "Pemanis Alami",
+    "slug": "pemanis-alami",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": 4,
+    "name": "Coming Soon",
+    "slug": "coming-soon",
+    "createdAt": "2024-01-01"
+  }
+]

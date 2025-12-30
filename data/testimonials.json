@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Budi Santoso",
+    "position": "Pemilik Warung Makan",
+    "content": "Gula jawa dari Produk Pemuda sangat berkualitas. Rasa dan aromanya sangat khas, cocok untuk masakan tradisional saya.",
+    "image": "/img/testimonial/testimonial-1.jpg",
+    "rating": 5,
+    "published": true
+  },
+  {
+    "id": 2,
+    "name": "Siti Rahayu",
+    "position": "Ibu Rumah Tangga",
+    "content": "Minuman asem jawa nya segar dan menyehatkan. Keluarga saya sangat suka dengan produk ini.",
+    "image": "/img/testimonial/testimonial-2.jpg",
+    "rating": 5,
+    "published": true
+  },
+  {
+    "id": 3,
+    "name": "Ahmad Wijaya",
+    "position": "Pengusaha Kuliner",
+    "content": "Kualitas produk konsisten dan harga bersaing. Sangat recommended untuk kebutuhan bisnis kuliner.",
+    "image": "/img/testimonial/testimonial-3.jpg",
+    "rating": 5,
+    "published": true
+  }
+]

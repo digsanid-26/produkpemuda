@@ -1,0 +1,526 @@
+/* PT Produk Pemuda Santara - Custom Color Scheme */
+/* Dominan: Merah #4A0E19, Putih #F7F5F2 */
+/* Aksen: Gold #C6A667 */
+/* Tulisan: Hitam #1C1C1C */
+
+:root {
+  --primary-color: #4A0E19;
+  --primary-dark: #3a0b14;
+  --secondary-color: #F7F5F2;
+  --accent-color: #C6A667;
+  --accent-dark: #b8954d;
+  --text-color: #1C1C1C;
+  --text-light: #4a4a4a;
+  --white: #ffffff;
+}
+
+/* Body & General */
+body {
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+}
+
+/* Header/Navbar */
+.vl-header-area,
+#vl-header-sticky {
+  background-color: var(--primary-color) !important;
+}
+
+#vl-header-sticky.sticky {
+  background-color: var(--primary-color) !important;
+}
+
+.vl-main-menu nav ul li a {
+  color: var(--white) !important;
+}
+
+.vl-main-menu nav ul li a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Logo area */
+.vl-logo a img {
+  filter: brightness(0) invert(1);
+}
+
+/* Hero/Banner Areas */
+.vl-hero-page-area,
+.inner-pages-section-area {
+  background-color: var(--primary-color) !important;
+}
+
+.vl-hero-page-heading h1,
+.inner-header h2 {
+  color: var(--white) !important;
+}
+
+.vl-breadcrumb-area .breadcrumb-item a,
+.vl-breadcrumb-area .breadcrumb-item.active,
+.inner-header a,
+.inner-header span {
+  color: var(--secondary-color) !important;
+}
+
+/* Buttons */
+.vl-btn1,
+.btn-primary,
+button[type="submit"] {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--white) !important;
+}
+
+.vl-btn1:hover,
+.btn-primary:hover,
+button[type="submit"]:hover {
+  background-color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: var(--primary-color) !important;
+}
+
+/* Section Titles */
+.vl-subtitle,
+.vl-section-title h5 {
+  color: var(--accent-color) !important;
+}
+
+.vl-section-heading,
+.vl-section-title h2 {
+  color: var(--primary-color) !important;
+}
+
+/* Service/Feature Boxes */
+.vl-service-box,
+.vl-project-box,
+.vl-blog-box {
+  background-color: var(--white);
+  border: 1px solid rgba(74, 14, 25, 0.1);
+}
+
+.vl-service-box:hover,
+.vl-project-box:hover,
+.vl-blog-box:hover {
+  border-color: var(--accent-color);
+}
+
+.vl-service-box .icon i,
+.vl-service-box .icon svg {
+  color: var(--primary-color);
+}
+
+.vl-service-box h4,
+.vl-project-box h4,
+.vl-blog-box h4 {
+  color: var(--primary-color);
+}
+
+/* Footer */
+.vl-footer1-section-area {
+  background-color: var(--primary-color) !important;
+}
+
+.vl-footer1-section-area,
+.vl-footer1-section-area p,
+.vl-footer1-section-area a,
+.vl-footer1-section-area h3,
+.vl-footer-widget h3,
+.vl-footer-widget ul li a,
+.footer-logo1 p {
+  color: var(--secondary-color) !important;
+}
+
+.vl-footer-widget ul li a:hover {
+  color: var(--accent-color) !important;
+}
+
+.footer-logo1 ul li a {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--white) !important;
+}
+
+.footer-logo1 ul li a:hover {
+  background-color: var(--accent-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.vl-copyright-area {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vl-copyright-area p {
+  color: var(--secondary-color) !important;
+}
+
+/* CTA Section */
+.vl-cta-section-area,
+.cta-area {
+  background-color: var(--accent-color) !important;
+}
+
+.vl-cta-section-area h2,
+.vl-cta-section-area p,
+.cta-area h2,
+.cta-area p {
+  color: var(--primary-color) !important;
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Badges */
+.badge.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.badge.bg-success {
+  background-color: #198754 !important;
+}
+
+.badge.bg-warning {
+  background-color: var(--accent-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.badge.bg-info {
+  background-color: var(--primary-color) !important;
+}
+
+/* Cards */
+.card {
+  border-color: rgba(74, 14, 25, 0.1);
+}
+
+.card-header {
+  background-color: var(--secondary-color);
+  border-bottom-color: rgba(74, 14, 25, 0.1);
+}
+
+/* Forms */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.2rem rgba(198, 166, 103, 0.25);
+}
+
+/* Mobile Menu */
+.vl-offcanvas {
+  background-color: var(--primary-color) !important;
+}
+
+.vl-offcanvas-info span a,
+.vl-offcanvas-social a {
+  color: var(--secondary-color) !important;
+}
+
+.vl-offcanvas-social a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Testimonials */
+.vl-testimonial-box {
+  background-color: var(--white);
+  border: 1px solid rgba(74, 14, 25, 0.1);
+}
+
+/* Contact boxes */
+.contact-bottom-box .icons {
+  background-color: var(--primary-color) !important;
+}
+
+.contact-bottom-box .icons svg path {
+  fill: var(--white) !important;
+}
+
+/* Header phone area */
+.vl-btn-wrap .text span,
+.vl-btn-wrap .text a {
+  color: var(--white) !important;
+}
+
+/* Search icon */
+.search-icon a img,
+.vl-btn-wrap .icons a img {
+  filter: brightness(0) invert(1);
+}
+
+/* Background sections */
+.bg-light {
+  background-color: var(--secondary-color) !important;
+}
+
+/* Timeline badges */
+.timeline-area .badge {
+  font-weight: 600;
+}
+
+/* Icon colors in service boxes */
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+/* About feature items */
+.vl-about-feature-item .icon {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* Sticky header */
+.vl-header-area.sticky-header {
+  background-color: var(--primary-color) !important;
+}
+
+/* Hero section overlay */
+.homepage1-body .vl-transparent-header {
+  background: transparent !important;
+}
+
+.homepage1-body .vl-transparent-header.sticky {
+  background-color: var(--primary-color) !important;
+}
+
+/* ========== HOMEPAGE 2 STYLES ========== */
+
+/* Header top area */
+.homepage2-body .header-top-area {
+  background-color: var(--primary-color);
+  padding: 10px 0;
+}
+
+.homepage2-body .header-list-area .info li a {
+  color: var(--secondary-color) !important;
+}
+
+.homepage2-body .header-list-area .social li a {
+  color: var(--secondary-color) !important;
+}
+
+.homepage2-body .header-list-area .social li a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Navbar row background */
+.homepage2-body .row-bg {
+  background-color: var(--white);
+  border-radius: 0 !important;
+  padding: 15px 20px;
+}
+
+.homepage2-body .vl-transparent-header .row-bg {
+  border: none !important;
+  border-radius: 0 !important;
+  background: var(--primary-color) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.homepage2-body .vl-main-menu nav ul li a {
+  color: var(--white) !important;
+}
+
+.homepage2-body .vl-main-menu nav ul li a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Menu button */
+.homepage2-body .menu-btn2 {
+  background-color: var(--primary-color) !important;
+  color: #4A0E19 !important;
+  border-radius: 5px;
+  padding: 12px 25px;
+}
+
+.homepage2-body .menu-btn2:hover {
+  background-color: var(--accent-color) !important;
+  color: var(--primary-color) !important;
+}
+
+/* Hero section */
+.hero2-section-area {
+  background-color: var(--primary-color) !important;
+}
+
+.hero2-section-area .hero2-heading h5 {
+  color: var(--accent-color) !important;
+}
+
+.hero2-section-area .hero2-heading h2 {
+  color: var(--white) !important;
+}
+
+.hero2-section-area .others-content p {
+  color: var(--secondary-color) !important;
+}
+
+.hero2-section-area .auhtor-content {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hero2-section-area .auhtor-content h4,
+.hero2-section-area .auhtor-content p {
+  color: var(--white) !important;
+}
+
+.hero2-section-area .vl-hero-btn {
+  background-color: var(--accent-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.hero2-section-area .vl-hero-btn:hover {
+  background-color: var(--white) !important;
+  color: var(--primary-color) !important;
+}
+
+/* Hero content area box */
+.hero2-section-area .hero-content-area {
+  background-color: var(--white);
+  border-left: 4px solid var(--accent-color);
+}
+
+.hero2-section-area .hero-content-area .icons img {
+  filter: none;
+}
+
+.hero2-section-area .hero-content-area a {
+  color: var(--primary-color) !important;
+}
+
+.hero2-section-area .hero-content-area .arrow a {
+  background-color: var(--primary-color);
+  color: var(--white) !important;
+}
+
+.hero2-section-area .hero-content-area .arrow a:hover {
+  background-color: var(--accent-color);
+}
+
+/* Counter box */
+.hero2-section-area .counter-box {
+  background-color: var(--accent-color);
+}
+
+.hero2-section-area .counter-box h3,
+.hero2-section-area .counter-box p {
+  color: var(--primary-color) !important;
+}
+
+/* Play button */
+.hero2-section-area .play-btn a {
+  background-color: var(--accent-color);
+  color: var(--primary-color) !important;
+}
+
+.hero2-section-area .play-btn a:hover {
+  background-color: var(--white);
+}
+
+/* About section 2 */
+.about2-section-area .vl-subtitle {
+  color: var(--accent-color) !important;
+}
+
+.about2-section-area h2 {
+  color: var(--primary-color) !important;
+}
+
+/* Service section 2 */
+.service2-section-area {
+  background-color: var(--primary-color) !important;
+}
+
+.service2-section-area .vl-subtitle {
+  color: var(--accent-color) !important;
+}
+
+.service2-section-area h2,
+.service2-section-area p {
+  color: var(--white) !important;
+}
+
+.service2-section-area .service2-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service2-section-area .service2-box:hover {
+  background-color: var(--accent-color);
+}
+
+.service2-section-area .service2-box:hover h4,
+.service2-section-area .service2-box:hover p,
+.service2-section-area .service2-box:hover a {
+  color: var(--primary-color) !important;
+}
+
+/* Why choose section */
+.whychoose2-section-area .vl-subtitle {
+  color: var(--accent-color) !important;
+}
+
+.whychoose2-section-area h2 {
+  color: var(--primary-color) !important;
+}
+
+/* Testimonial section 2 */
+.testimonial2-section-area {
+  background-color: var(--secondary-color);
+}
+
+.testimonial2-section-area .vl-subtitle {
+  color: var(--accent-color) !important;
+}
+
+.testimonial2-section-area h2 {
+  color: var(--primary-color) !important;
+}
+
+/* Project section 2 */
+.project2-section-area .vl-subtitle {
+  color: var(--accent-color) !important;
+}
+
+.project2-section-area h2 {
+  color: var(--primary-color) !important;
+}
+
+/* Blog section 2 */
+.blog2-section-area .vl-subtitle {
+  color: var(--accent-color) !important;
+}
+
+.blog2-section-area h2 {
+  color: var(--primary-color) !important;
+}
+
+/* CTA section 2 */
+.cta2-section-area {
+  background-color: var(--primary-color) !important;
+}
+
+.cta2-section-area h2 {
+  color: var(--white) !important;
+}
+
+.cta2-section-area .cta-btn {
+  background-color: var(--accent-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.cta2-section-area .cta-btn:hover {
+  background-color: var(--white) !important;
+}
+
+/* Sticky header for homepage2 */
+.homepage2-body #vl-header-sticky.sticky {
+  background-color: var(--white) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.homepage2-body #vl-header-sticky.sticky .header-top-area {
+  display: none;
+}

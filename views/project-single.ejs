@@ -1,0 +1,145 @@
+<%# SEO Meta Tags for Project Single Page %>
+<% 
+  const metaTitle = project.seo && project.seo.metaTitle ? project.seo.metaTitle : project.title + ' - ' + (settings.site ? settings.site.name : 'Produk Pemuda Santara');
+  const metaDescription = project.seo && project.seo.metaDescription ? project.seo.metaDescription : project.shortDescription;
+  const metaKeywords = project.seo && project.seo.metaKeywords ? project.seo.metaKeywords : '';
+  const canonical = project.seo && project.seo.canonical ? project.seo.canonical : '';
+  const ogImage = project.seo && project.seo.ogImage ? project.seo.ogImage : project.featuredImage;
+%>
+
+<%- contentFor('head') %>
+<title><%= metaTitle %></title>
+<meta name="description" content="<%= metaDescription %>">
+<% if (metaKeywords) { %><meta name="keywords" content="<%= metaKeywords %>"><% } %>
+<% if (canonical) { %><link rel="canonical" href="<%= canonical %>"><% } %>
+
+<!-- Open Graph -->
+<meta property="og:title" content="<%= metaTitle %>">
+<meta property="og:description" content="<%= metaDescription %>">
+<meta property="og:image" content="<%= ogImage %>">
+<meta property="og:type" content="article">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= metaTitle %>">
+<meta name="twitter:description" content="<%= metaDescription %>">
+<meta name="twitter:image" content="<%= ogImage %>">
+
+<% if (project.seo && project.seo.schema) { %>
+<script type="application/ld+json">
+<%= project.seo.schema %>
+</script>
+<% } else { %>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "<%= project.title %>",
+  "description": "<%= project.shortDescription %>",
+  "image": "<%= project.featuredImage %>",
+  "author": {
+    "@type": "Organization",
+    "name": "<%= settings.site ? settings.site.name : 'Produk Pemuda Santara' %>"
+  }
+}
+</script>
+<% } %>
+
+<%- contentFor('body') %>
+
+<%- include('partials/header/navbar5') %>
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-section-area" style="background-image: url(<%= project.featuredImage %>); background-size: cover; background-position: center;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-area text-center">
+          <h2><%= project.title %></h2>
+          <div class="space20"></div>
+          <ul>
+            <li><a href="/">Beranda</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><a href="/project">Project</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><%= project.title %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== HERO AREA ENDS ======= -->
+
+<!-- Project Single Content -->
+<div class="project-single-section sp1">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="project-single-content">
+          <div class="project-featured-image mb-4">
+            <img src="<%= project.featuredImage %>" alt="<%= project.title %>" class="img-fluid rounded" style="width: 100%; max-height: 400px; object-fit: cover;">
+          </div>
+          
+          <div class="project-meta mb-4">
+            <% if (category) { %>
+            <span class="badge bg-primary me-2"><%= category.name %></span>
+            <% } %>
+            <% if (projectTags && projectTags.length > 0) { %>
+              <% projectTags.forEach(tag => { %>
+              <span class="badge bg-secondary me-1"><%= tag.name %></span>
+              <% }) %>
+            <% } %>
+          </div>
+
+          <div class="project-content">
+            <%- project.content %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="project-sidebar">
+          <!-- Project Info Card -->
+          <div class="sidebar-widget mb-4" style="background: #f8f9fa; padding: 25px; border-radius: 12px;">
+            <h4 style="margin-bottom: 20px; color: #1e3a8a;">Informasi Project</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <% if (category) { %>
+              <li style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">
+                <strong>Kategori:</strong> <%= category.name %>
+              </li>
+              <% } %>
+              <li style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">
+                <strong>Terakhir Update:</strong> <%= project.updatedAt %>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related Projects -->
+          <% if (relatedProjects && relatedProjects.length > 0) { %>
+          <div class="sidebar-widget" style="background: #f8f9fa; padding: 25px; border-radius: 12px;">
+            <h4 style="margin-bottom: 20px; color: #1e3a8a;">Project Terkait</h4>
+            <% relatedProjects.forEach(related => { %>
+            <div class="related-project-item mb-3" style="display: flex; gap: 15px; align-items: center;">
+              <img src="<%= related.featuredImage %>" alt="<%= related.title %>" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+              <div>
+                <a href="/project/<%= related.slug %>" style="font-weight: 600; color: #1e293b; text-decoration: none;"><%= related.title %></a>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+          <% } %>
+
+          <!-- CTA -->
+          <div class="sidebar-widget mt-4" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 25px; border-radius: 12px; text-align: center;">
+            <h4 style="color: white; margin-bottom: 15px;">Tertarik dengan project ini?</h4>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px;">Hubungi kami untuk informasi lebih lanjut</p>
+            <a href="/contact" class="btn" style="background: white; color: #1e3a8a; padding: 12px 30px; border-radius: 8px; font-weight: 600; text-decoration: none;">Hubungi Kami</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer/footer5') %>

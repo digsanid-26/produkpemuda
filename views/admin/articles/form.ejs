@@ -1,0 +1,56 @@
+<% locals.page = 'articles' %>
+
+<div class="top-bar">
+    <h1 class="page-title"><%= action === 'create' ? 'Tambah Artikel Baru' : 'Edit Artikel' %></h1>
+    <a href="/admin/articles" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Kembali
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="POST" action="/admin/articles/<%= action === 'create' ? 'create' : 'edit/' + article.id %>">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="mb-3">
+                        <label class="form-label">Judul Artikel</label>
+                        <input type="text" name="title" class="form-control" value="<%= article ? article.title : '' %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ringkasan</label>
+                        <textarea name="excerpt" class="form-control" rows="2" required><%= article ? article.excerpt : '' %></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Konten</label>
+                        <textarea name="content" class="form-control" rows="10" required><%= article ? article.content : '' %></textarea>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label class="form-label">Kategori</label>
+                        <select name="category" class="form-select" required>
+                            <option value="Produk" <%= article && article.category === 'Produk' ? 'selected' : '' %>>Produk</option>
+                            <option value="Berita" <%= article && article.category === 'Berita' ? 'selected' : '' %>>Berita</option>
+                            <option value="Tips" <%= article && article.category === 'Tips' ? 'selected' : '' %>>Tips</option>
+                            <option value="Event" <%= article && article.category === 'Event' ? 'selected' : '' %>>Event</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">URL Gambar</label>
+                        <input type="text" name="image" class="form-control" value="<%= article ? article.image : '/img/blog/blog-1.jpg' %>" placeholder="/img/blog/blog-1.jpg">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" name="published" class="form-check-input" id="published" <%= article && article.published ? 'checked' : '' %>>
+                            <label class="form-check-label" for="published">Publish artikel ini</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-check-circle"></i> <%= action === 'create' ? 'Simpan Artikel' : 'Update Artikel' %>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

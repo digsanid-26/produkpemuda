@@ -1,0 +1,57 @@
+<% locals.page = 'testimonials' %>
+
+<div class="top-bar">
+    <h1 class="page-title"><%= action === 'create' ? 'Tambah Testimoni Baru' : 'Edit Testimoni' %></h1>
+    <a href="/admin/testimonials" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Kembali
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="POST" action="/admin/testimonials/<%= action === 'create' ? 'create' : 'edit/' + testimonial.id %>">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="mb-3">
+                        <label class="form-label">Nama</label>
+                        <input type="text" name="name" class="form-control" value="<%= testimonial ? testimonial.name : '' %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Posisi / Pekerjaan</label>
+                        <input type="text" name="position" class="form-control" value="<%= testimonial ? testimonial.position : '' %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Isi Testimoni</label>
+                        <textarea name="content" class="form-control" rows="5" required><%= testimonial ? testimonial.content : '' %></textarea>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label class="form-label">Rating</label>
+                        <select name="rating" class="form-select" required>
+                            <option value="5" <%= testimonial && testimonial.rating === 5 ? 'selected' : '' %>>5 Bintang</option>
+                            <option value="4" <%= testimonial && testimonial.rating === 4 ? 'selected' : '' %>>4 Bintang</option>
+                            <option value="3" <%= testimonial && testimonial.rating === 3 ? 'selected' : '' %>>3 Bintang</option>
+                            <option value="2" <%= testimonial && testimonial.rating === 2 ? 'selected' : '' %>>2 Bintang</option>
+                            <option value="1" <%= testimonial && testimonial.rating === 1 ? 'selected' : '' %>>1 Bintang</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">URL Foto</label>
+                        <input type="text" name="image" class="form-control" value="<%= testimonial ? testimonial.image : '/img/testimonial/testimonial-1.jpg' %>" placeholder="/img/testimonial/testimonial-1.jpg">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" name="published" class="form-check-input" id="published" <%= testimonial && testimonial.published ? 'checked' : '' %>>
+                            <label class="form-check-label" for="published">Publish testimoni ini</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-check-circle"></i> <%= action === 'create' ? 'Simpan Testimoni' : 'Update Testimoni' %>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

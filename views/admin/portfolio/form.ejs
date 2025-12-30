@@ -1,0 +1,57 @@
+<% locals.page = 'portfolio' %>
+
+<div class="top-bar">
+    <h1 class="page-title"><%= action === 'create' ? 'Tambah Portfolio Baru' : 'Edit Portfolio' %></h1>
+    <a href="/admin/portfolio" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Kembali
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="POST" action="/admin/portfolio/<%= action === 'create' ? 'create' : 'edit/' + item.id %>">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="mb-3">
+                        <label class="form-label">Judul Portfolio</label>
+                        <input type="text" name="title" class="form-control" value="<%= item ? item.title : '' %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Deskripsi</label>
+                        <textarea name="description" class="form-control" rows="5" required><%= item ? item.description : '' %></textarea>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label class="form-label">Kategori</label>
+                        <select name="category" class="form-select" required>
+                            <option value="Minuman" <%= item && item.category === 'Minuman' ? 'selected' : '' %>>Minuman</option>
+                            <option value="Makanan" <%= item && item.category === 'Makanan' ? 'selected' : '' %>>Makanan</option>
+                            <option value="Makanan Ringan" <%= item && item.category === 'Makanan Ringan' ? 'selected' : '' %>>Makanan Ringan</option>
+                            <option value="Skincare" <%= item && item.category === 'Skincare' ? 'selected' : '' %>>Skincare</option>
+                            <option value="Digital" <%= item && item.category === 'Digital' ? 'selected' : '' %>>Digital</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Client</label>
+                        <input type="text" name="client" class="form-control" value="<%= item ? item.client : 'PT Produk Pemuda Santara' %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">URL Gambar</label>
+                        <input type="text" name="image" class="form-control" value="<%= item ? item.image : '/img/project/project-1.jpg' %>" placeholder="/img/project/project-1.jpg">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" name="published" class="form-check-input" id="published" <%= item && item.published ? 'checked' : '' %>>
+                            <label class="form-check-label" for="published">Publish portfolio ini</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-check-circle"></i> <%= action === 'create' ? 'Simpan Portfolio' : 'Update Portfolio' %>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

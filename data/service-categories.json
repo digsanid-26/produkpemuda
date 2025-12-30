@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Makanan & Minuman",
+    "slug": "makanan-minuman",
+    "description": "Produk makanan dan minuman tradisional",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": 2,
+    "name": "Camilan",
+    "slug": "camilan",
+    "description": "Produk camilan dan snack",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": 3,
+    "name": "Kecantikan",
+    "slug": "kecantikan",
+    "description": "Produk perawatan dan kecantikan",
+    "createdAt": "2024-01-01"
+  }
+]

@@ -1,0 +1,117 @@
+<% locals.page = 'cards' %>
+
+<div class="top-bar">
+    <h1 class="page-title"><%= action === 'create' ? 'Tambah Kartu Nama Baru' : 'Edit Kartu Nama' %></h1>
+    <a href="/admin/cards" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Kembali
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="POST" action="/admin/cards/<%= action === 'create' ? 'create' : 'edit/' + card.id %>">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5 class="mb-3">Informasi Dasar</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Nama Lengkap *</label>
+                                <input type="text" name="name" class="form-control" value="<%= card ? card.name : '' %>" required>
+                                <small class="text-muted">Nama akan digunakan untuk membuat slug URL</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Posisi / Jabatan *</label>
+                                <input type="text" name="position" class="form-control" value="<%= card ? card.position : '' %>" required placeholder="contoh: CEO & Founder">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Email *</label>
+                                <input type="email" name="email" class="form-control" value="<%= card ? card.email : '' %>" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">No. Telepon *</label>
+                                <input type="text" name="phone" class="form-control" value="<%= card ? card.phone : '' %>" required placeholder="+62 812 3456 7890">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Rangkuman / Bio Singkat *</label>
+                        <textarea name="summary" class="form-control" rows="3" required placeholder="Deskripsi singkat tentang orang ini..."><%= card ? card.summary : '' %></textarea>
+                    </div>
+                    
+                    <h5 class="mb-3 mt-4">Media Sosial (Opsional)</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label"><i class="bi bi-linkedin"></i> LinkedIn</label>
+                                <input type="url" name="social_linkedin" class="form-control" value="<%= card && card.social ? card.social.linkedin : '' %>" placeholder="https://linkedin.com/in/...">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label"><i class="bi bi-instagram"></i> Instagram</label>
+                                <input type="url" name="social_instagram" class="form-control" value="<%= card && card.social ? card.social.instagram : '' %>" placeholder="https://instagram.com/...">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label"><i class="bi bi-twitter-x"></i> Twitter/X</label>
+                                <input type="url" name="social_twitter" class="form-control" value="<%= card && card.social ? card.social.twitter : '' %>" placeholder="https://twitter.com/...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5 class="mb-3">Foto & Status</h5>
+                    <div class="mb-3">
+                        <label class="form-label">URL Foto</label>
+                        <input type="text" name="photo" class="form-control" value="<%= card ? card.photo : '/img/team/team-1.jpg' %>" placeholder="/img/team/team-1.jpg">
+                        <small class="text-muted">Gunakan foto persegi (1:1) untuk hasil terbaik</small>
+                    </div>
+                    
+                    <% if (card && card.photo) { %>
+                    <div class="mb-3 text-center">
+                        <img src="<%= card.photo %>" alt="Preview" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #4A0E19;">
+                    </div>
+                    <% } %>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" name="published" class="form-check-input" id="published" <%= card && card.published ? 'checked' : '' %>>
+                            <label class="form-check-label" for="published">Publish kartu nama ini</label>
+                        </div>
+                    </div>
+                    
+                    <% if (card) { %>
+                    <div class="alert alert-info">
+                        <strong>URL Kartu Nama:</strong><br>
+                        <a href="/card/<%= card.slug %>" target="_blank">/card/<%= card.slug %></a>
+                    </div>
+                    <% } %>
+                    
+                    <hr>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-check-circle"></i> <%= action === 'create' ? 'Simpan Kartu Nama' : 'Update Kartu Nama' %>
+                    </button>
+                    
+                    <% if (card) { %>
+                    <a href="/card/<%= card.slug %>" target="_blank" class="btn btn-outline-success w-100 mt-2">
+                        <i class="bi bi-eye"></i> Preview Kartu Nama
+                    </a>
+                    <% } %>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

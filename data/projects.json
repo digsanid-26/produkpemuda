@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "title": "Keripik Nusantara",
+    "slug": "keripik-nusantara",
+    "shortDescription": "Produk camilan keripik dengan berbagai varian rasa khas Nusantara.",
+    "content": "<p>Keripik Nusantara adalah produk camilan yang dibuat dari bahan-bahan pilihan dengan berbagai varian rasa khas Indonesia.</p>",
+    "featuredImage": "/img/all-images/project/project-img14.png",
+    "categoryId": 1,
+    "tags": [1],
+    "seo": {
+      "metaTitle": "Keripik Nusantara - Produk Pemuda Santara",
+      "metaDescription": "Produk camilan keripik dengan berbagai varian rasa khas Nusantara.",
+      "metaKeywords": "keripik, camilan, snack nusantara",
+      "canonical": "",
+      "ogImage": "/img/all-images/project/project-img14.png",
+      "schema": ""
+    },
+    "order": 1,
+    "published": true,
+    "createdAt": "2024-01-01",
+    "updatedAt": "2024-01-01"
+  },
+  {
+    "id": 2,
+    "title": "Produk Skincare",
+    "slug": "produk-skincare",
+    "shortDescription": "Produk perawatan kulit berbahan alami dan aman untuk semua jenis kulit.",
+    "content": "<p>Produk skincare kami dikembangkan dengan formula yang aman dan berkualitas, menggunakan bahan-bahan alami untuk memenuhi kebutuhan perawatan kulit Anda.</p>",
+    "featuredImage": "/img/all-images/project/project-img13.png",
+    "categoryId": 2,
+    "tags": [2],
+    "seo": {
+      "metaTitle": "Produk Skincare - Produk Pemuda Santara",
+      "metaDescription": "Produk perawatan kulit berbahan alami dan aman untuk semua jenis kulit.",
+      "metaKeywords": "skincare, perawatan kulit, kecantikan",
+      "canonical": "",
+      "ogImage": "/img/all-images/project/project-img13.png",
+      "schema": ""
+    },
+    "order": 2,
+    "published": true,
+    "createdAt": "2024-01-01",
+    "updatedAt": "2024-01-01"
+  },
+  {
+    "id": 3,
+    "title": "Layanan Digital",
+    "slug": "layanan-digital",
+    "shortDescription": "Solusi digital untuk kebutuhan bisnis dan teknologi informasi.",
+    "content": "<p>Kami menyediakan berbagai layanan digital termasuk pembuatan aplikasi, website, dan solusi teknologi lainnya.</p>",
+    "featuredImage": "/img/all-images/project/project-img16.png",
+    "categoryId": 3,
+    "tags": [3],
+    "seo": {
+      "metaTitle": "Layanan Digital - Produk Pemuda Santara",
+      "metaDescription": "Solusi digital untuk kebutuhan bisnis dan teknologi informasi.",
+      "metaKeywords": "layanan digital, aplikasi, website",
+      "canonical": "",
+      "ogImage": "/img/all-images/project/project-img16.png",
+      "schema": ""
+    },
+    "order": 3,
+    "published": true,
+    "createdAt": "2024-01-01",
+    "updatedAt": "2024-01-01"
+  },
+  {
+    "id": 4,
+    "title": "Minuman Tradisional",
+    "slug": "minuman-tradisional",
+    "shortDescription": "Minuman tradisional dengan cita rasa khas Indonesia yang menyegarkan.",
+    "content": "<p>Minuman tradisional kami dibuat dari resep turun-temurun dengan bahan-bahan alami pilihan.</p>",
+    "featuredImage": "/img/all-images/project/project-img19.png",
+    "categoryId": 1,
+    "tags": [1, 4],
+    "seo": {
+      "metaTitle": "Minuman Tradisional - Produk Pemuda Santara",
+      "metaDescription": "Minuman tradisional dengan cita rasa khas Indonesia yang menyegarkan.",
+      "metaKeywords": "minuman tradisional, minuman sehat, jamu",
+      "canonical": "",
+      "ogImage": "/img/all-images/project/project-img19.png",
+      "schema": ""
+    },
+    "order": 4,
+    "published": true,
+    "createdAt": "2024-01-01",
+    "updatedAt": "2024-01-01"
+  },
+  {
+    "id": 5,
+    "title": "Gula Jawa Premium",
+    "slug": "gula-jawa-premium",
+    "shortDescription": "Gula jawa berkualitas tinggi dari nira kelapa pilihan.",
+    "content": "<p>Gula Jawa Premium kami diproduksi dari nira kelapa pilihan dengan proses tradisional yang terjaga kualitasnya.</p>",
+    "featuredImage": "/img/all-images/project/project-img15.png",
+    "categoryId": 4,
+    "tags": [1, 5],
+    "seo": {
+      "metaTitle": "Gula Jawa Premium - Produk Pemuda Santara",
+      "metaDescription": "Gula jawa berkualitas tinggi dari nira kelapa pilihan.",
+      "metaKeywords": "gula jawa, gula merah, pemanis alami",
+      "canonical": "",
+      "ogImage": "/img/all-images/project/project-img15.png",
+      "schema": ""
+    },
+    "order": 5,
+    "published": true,
+    "createdAt": "2024-01-01",
+    "updatedAt": "2024-01-01"
+  },
+  {
+    "id": 6,
+    "title": "Jasa Pembuatan Aplikasi",
+    "slug": "jasa-pembuatan-aplikasi",
+    "shortDescription": "Layanan pembuatan aplikasi mobile dan web untuk kebutuhan bisnis.",
+    "content": "<p>Kami menyediakan jasa pembuatan aplikasi mobile dan web dengan teknologi terkini untuk membantu digitalisasi bisnis Anda.</p>",
+    "featuredImage": "/img/all-images/project/project-img16.png",
+    "categoryId": 3,
+    "tags": [3],
+    "seo": {
+      "metaTitle": "Jasa Pembuatan Aplikasi - Produk Pemuda Santara",
+      "metaDescription": "Layanan pembuatan aplikasi mobile dan web untuk kebutuhan bisnis.",
+      "metaKeywords": "jasa aplikasi, pembuatan aplikasi, developer",
+      "canonical": "",
+      "ogImage": "/img/all-images/project/project-img16.png",
+      "schema": ""
+    },
+    "order": 6,
+    "published": true,
+    "createdAt": "2024-01-01",
+    "updatedAt": "2024-01-01"
+  }
+]

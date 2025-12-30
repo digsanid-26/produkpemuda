@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Produk Unggulan",
+    "slug": "produk-unggulan",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": 2,
+    "name": "Coming Soon",
+    "slug": "coming-soon",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": 3,
+    "name": "Digital Service",
+    "slug": "digital-service",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": 4,
+    "name": "Tradisional",
+    "slug": "tradisional",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": 5,
+    "name": "Premium",
+    "slug": "premium",
+    "createdAt": "2024-01-01"
+  }
+]

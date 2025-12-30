@@ -1,0 +1,53 @@
+{
+  "site": {
+    "name": "PT Produk Pemuda Santara",
+    "tagline": "Menghadirkan Produk Berkualitas dengan Semangat Pemuda Indonesia",
+    "description": "PT Produk Pemuda Santara adalah perusahaan yang bergerak di bidang produksi dan jual beli berbagai jenis produk, dengan fokus awal pada makanan dan minuman berbahan dasar lokal.",
+    "logo": "/img/logo.png",
+    "favicon": "/img/favicon.ico",
+    "email": "info@produkpemuda.com",
+    "phone": "+62 851-8997-2223",
+    "address": "RRG 6 No.26, RT.003/RW.017, Jaka Setia, Bekasi Selatan, Bekasi, West Java 17148",
+    "social": {
+      "facebook": "https://facebook.com/produkpemuda",
+      "instagram": "https://instagram.com/produkpemuda",
+      "twitter": "https://twitter.com/produkpemuda",
+      "linkedin": "https://linkedin.com/company/produkpemuda"
+    }
+  },
+  "about": {
+    "title": "Tentang PT Produk Pemuda Santara",
+    "content": "PT Produk Pemuda Santara adalah perusahaan yang bergerak di bidang produksi dan jual beli berbagai jenis produk, dengan fokus awal pada makanan dan minuman berbahan dasar lokal. Berdiri dengan semangat pemberdayaan pemuda Indonesia, perusahaan ini berkomitmen untuk menghadirkan produk berkualitas yang mengangkat kekayaan rasa dan tradisi Nusantara.",
+    "mission": "Menghadirkan produk berkualitas yang mengangkat kekayaan rasa dan tradisi Nusantara dengan semangat pemberdayaan pemuda Indonesia.",
+    "vision": "Menjadi pemain kompetitif di berbagai sektor industri melalui inovasi, kualitas, dan integritas."
+  },
+  "products": [
+    {
+      "name": "Minuman Asem Jawa",
+      "description": "Minuman tradisional dengan cita rasa khas, diolah secara higienis, dan dikemas modern.",
+      "status": "available"
+    },
+    {
+      "name": "Gula Jawa",
+      "description": "Produk pemanis alami dengan kualitas tinggi, cocok untuk kebutuhan dapur dan kuliner.",
+      "status": "available"
+    },
+    {
+      "name": "Keripik",
+      "description": "Produk camilan yang sedang dalam tahap pengembangan.",
+      "status": "coming_soon"
+    }
+  ],
+  "future_plans": [
+    {
+      "name": "Produk Skincare",
+      "description": "Mengembangkan produk perawatan kulit berbahan aman dan berkualitas.",
+      "timeline": "1-2 tahun"
+    },
+    {
+      "name": "Jasa Pembuatan Aplikasi & Layanan Digital",
+      "description": "Masuk ke sektor digital melalui pengembangan aplikasi dan solusi teknologi.",
+      "timeline": "1-2 tahun"
+    }
+  ]
+}

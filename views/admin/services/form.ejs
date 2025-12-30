@@ -1,0 +1,157 @@
+<% locals.page = 'services' %>
+
+<div class="top-bar">
+    <h1 class="page-title"><%= action === 'create' ? 'Tambah Layanan Baru' : 'Edit Layanan' %></h1>
+    <a href="/admin/services" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Kembali
+    </a>
+</div>
+
+<form method="POST" action="/admin/services/<%= action === 'create' ? 'create' : 'edit/' + service.id %>" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-8">
+            <!-- Main Content -->
+            <div class="card mb-4">
+                <div class="card-header">Informasi Utama</div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Judul Layanan <span class="text-danger">*</span></label>
+                        <input type="text" name="title" class="form-control" value="<%= service ? service.title : '' %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Deskripsi Singkat <span class="text-danger">*</span></label>
+                        <textarea name="shortDescription" class="form-control" rows="2" required maxlength="200"><%= service ? service.shortDescription : '' %></textarea>
+                        <small class="text-muted">Maksimal 200 karakter. Akan ditampilkan di halaman utama.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Konten Lengkap</label>
+                        <textarea name="content" class="form-control" rows="8" id="contentEditor"><%= service ? service.content : '' %></textarea>
+                        <small class="text-muted">Mendukung HTML untuk formatting.</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEO Settings -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="bi bi-search"></i> Pengaturan SEO
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Meta Title</label>
+                        <input type="text" name="seo_metaTitle" class="form-control" value="<%= service && service.seo ? service.seo.metaTitle : '' %>" maxlength="70">
+                        <small class="text-muted">Maksimal 70 karakter. Kosongkan untuk menggunakan judul layanan.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Meta Description</label>
+                        <textarea name="seo_metaDescription" class="form-control" rows="2" maxlength="160"><%= service && service.seo ? service.seo.metaDescription : '' %></textarea>
+                        <small class="text-muted">Maksimal 160 karakter. Kosongkan untuk menggunakan deskripsi singkat.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Meta Keywords</label>
+                        <input type="text" name="seo_metaKeywords" class="form-control" value="<%= service && service.seo ? service.seo.metaKeywords : '' %>">
+                        <small class="text-muted">Pisahkan dengan koma. Contoh: produk, layanan, jasa</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Canonical URL</label>
+                        <input type="url" name="seo_canonical" class="form-control" value="<%= service && service.seo ? service.seo.canonical : '' %>" placeholder="https://example.com/service/slug">
+                        <small class="text-muted">Kosongkan untuk menggunakan URL default.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">OG Image URL</label>
+                        <input type="text" name="seo_ogImage" class="form-control" value="<%= service && service.seo ? service.seo.ogImage : '' %>" placeholder="/img/og-image.jpg">
+                        <small class="text-muted">Gambar untuk dibagikan di media sosial. Kosongkan untuk menggunakan featured image.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Schema Markup (JSON-LD)</label>
+                        <textarea name="seo_schema" class="form-control" rows="4" style="font-family: monospace; font-size: 12px;"><%= service && service.seo ? service.seo.schema : '' %></textarea>
+                        <small class="text-muted">Masukkan JSON-LD schema markup untuk structured data. Kosongkan untuk menggunakan schema default.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <!-- Publish Settings -->
+            <div class="card mb-4">
+                <div class="card-header">Publikasi</div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input type="checkbox" name="published" class="form-check-input" id="published" <%= service && service.published ? 'checked' : '' %>>
+                            <label class="form-check-label" for="published">Publish layanan ini</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Urutan Tampil</label>
+                        <input type="number" name="order" class="form-control" value="<%= service ? service.order : 1 %>" min="1">
+                        <small class="text-muted">Urutan lebih kecil tampil lebih dulu.</small>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-check-circle"></i> <%= action === 'create' ? 'Simpan Layanan' : 'Update Layanan' %>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Featured Image Upload -->
+            <div class="card mb-4">
+                <div class="card-header">Featured Image</div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Upload Gambar</label>
+                        <input type="file" name="featuredImageFile" class="form-control" id="imageUpload" accept="image/*">
+                        <small class="text-muted">Format: JPG, PNG, GIF, WebP. Max 5MB.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Atau URL Gambar</label>
+                        <input type="text" name="featuredImage" class="form-control" id="featuredImageInput" value="<%= service ? service.featuredImage : '/img/all-images/service/service-img1.png' %>">
+                    </div>
+                    <div class="mt-2">
+                        <label class="form-label">Preview:</label>
+                        <img src="<%= service ? service.featuredImage : '/img/all-images/service/service-img1.png' %>" alt="Preview" id="imagePreview" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label class="form-label">Icon URL</label>
+                        <input type="text" name="icon" class="form-control" value="<%= service ? service.icon : '/img/icons/service16.svg' %>">
+                        <small class="text-muted">Icon SVG untuk tampilan di homepage.</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category & Tags -->
+            <div class="card mb-4">
+                <div class="card-header">Kategori & Tag</div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Kategori</label>
+                        <select name="categoryId" class="form-select" required>
+                            <option value="">Pilih Kategori</option>
+                            <% categories.forEach(cat => { %>
+                            <option value="<%= cat.id %>" <%= service && service.categoryId === cat.id ? 'selected' : '' %>><%= cat.name %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tags</label>
+                        <div class="tags-checkbox">
+                            <% tags.forEach(tag => { %>
+                            <div class="form-check">
+                                <input type="checkbox" name="tags" value="<%= tag.id %>" class="form-check-input" id="tag_<%= tag.id %>" 
+                                    <%= service && service.tags && service.tags.includes(tag.id) ? 'checked' : '' %>>
+                                <label class="form-check-label" for="tag_<%= tag.id %>"><%= tag.name %></label>
+                            </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+document.getElementById('featuredImageInput').addEventListener('change', function() {
+    document.getElementById('imagePreview').src = this.value;
+});
+</script>

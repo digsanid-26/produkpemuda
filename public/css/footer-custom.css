@@ -1,0 +1,50 @@
+/* Footer Custom Styles */
+.vl-footer1-section-area {
+    background: #2c3e50 !important;
+    color: #ffffff !important;
+}
+
+.vl-footer1-section-area p {
+    color: #ecf0f1 !important;
+}
+
+.vl-footer1-section-area h3 {
+    color: #ffffff !important;
+}
+
+.vl-footer1-section-area ul li a {
+    color: #bdc3c7 !important;
+}
+
+.vl-footer1-section-area ul li a:hover {
+    color: #ffffff !important;
+}
+
+.vl-footer1-section-area .vl-copyright-area p {
+    color: #95a5a6 !important;
+}
+
+/* Fix untuk footer5 jika masih digunakan di tempat lain */
+.vl-footer5-section-area {
+    background: #2c3e50 !important;
+}
+
+.vl-footer5-section-area .footer-logo1 p {
+    color: #ecf0f1 !important;
+}
+
+.vl-footer5-section-area .vl-footer-widget h3 {
+    color: #ffffff !important;
+}
+
+.vl-footer5-section-area .vl-footer-widget ul li a {
+    color: #bdc3c7 !important;
+}
+
+.vl-footer5-section-area .vl-footer-widget ul li a:hover {
+    color: #ffffff !important;
+}
+
+.vl-footer5-section-area .vl-copyright-area p {
+    color: #95a5a6 !important;
+}

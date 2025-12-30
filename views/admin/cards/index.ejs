@@ -1,0 +1,87 @@
+<% locals.page = 'cards' %>
+
+<div class="top-bar">
+    <h1 class="page-title">Kelola Kartu Nama Digital</h1>
+    <a href="/admin/cards/create" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Tambah Kartu Nama
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Foto</th>
+                        <th>Nama</th>
+                        <th>Posisi</th>
+                        <th>Link</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (cards.length === 0) { %>
+                    <tr>
+                        <td colspan="7" class="text-center text-muted py-4">Belum ada kartu nama</td>
+                    </tr>
+                    <% } else { %>
+                    <% cards.forEach(card => { %>
+                    <tr>
+                        <td><%= card.id %></td>
+                        <td>
+                            <img src="<%= card.photo %>" alt="<%= card.name %>" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        </td>
+                        <td><strong><%= card.name %></strong></td>
+                        <td><%= card.position %></td>
+                        <td>
+                            <a href="/card/<%= card.slug %>" target="_blank" class="text-primary">
+                                <i class="bi bi-link-45deg"></i> /card/<%= card.slug %>
+                            </a>
+                        </td>
+                        <td>
+                            <% if (card.published) { %>
+                            <span class="badge badge-published">Published</span>
+                            <% } else { %>
+                            <span class="badge badge-draft">Draft</span>
+                            <% } %>
+                        </td>
+                        <td>
+                            <a href="/card/<%= card.slug %>" target="_blank" class="btn btn-sm btn-outline-success" title="Preview">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a href="/admin/cards/edit/<%= card.id %>" class="btn btn-sm btn-outline-primary" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a href="/admin/cards/delete/<%= card.id %>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Yakin ingin menghapus kartu nama ini?')" title="Hapus">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header">
+        <i class="bi bi-info-circle"></i> Informasi Penggunaan
+    </div>
+    <div class="card-body">
+        <p class="mb-2"><strong>Format URL Kartu Nama:</strong></p>
+        <code>https://produkpemuda.com/card/[slug]</code>
+        <p class="mt-3 mb-2"><strong>Contoh:</strong></p>
+        <ul class="mb-0">
+            <li><code>https://produkpemuda.com/card/ahmad-santara</code></li>
+            <li><code>https://produkpemuda.com/card/siti-pemuda</code></li>
+        </ul>
+        <p class="mt-3 text-muted">
+            <i class="bi bi-lightbulb"></i> URL ini dapat dicetak di kartu nama fisik atau dikonversi menjadi QR Code untuk memudahkan akses.
+        </p>
+    </div>
+</div>

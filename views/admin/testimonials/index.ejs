@@ -1,0 +1,62 @@
+<% locals.page = 'testimonials' %>
+
+<div class="top-bar">
+    <h1 class="page-title">Kelola Testimoni</h1>
+    <a href="/admin/testimonials/create" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Tambah Testimoni
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Posisi</th>
+                        <th>Rating</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (testimonials.length === 0) { %>
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-4">Belum ada testimoni</td>
+                    </tr>
+                    <% } else { %>
+                    <% testimonials.forEach(testimonial => { %>
+                    <tr>
+                        <td><%= testimonial.id %></td>
+                        <td><strong><%= testimonial.name %></strong></td>
+                        <td><%= testimonial.position %></td>
+                        <td>
+                            <% for(let i = 0; i < testimonial.rating; i++) { %>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <% } %>
+                        </td>
+                        <td>
+                            <% if (testimonial.published) { %>
+                            <span class="badge badge-published">Published</span>
+                            <% } else { %>
+                            <span class="badge badge-draft">Draft</span>
+                            <% } %>
+                        </td>
+                        <td>
+                            <a href="/admin/testimonials/edit/<%= testimonial.id %>" class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a href="/admin/testimonials/delete/<%= testimonial.id %>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Yakin ingin menghapus testimoni ini?')">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
