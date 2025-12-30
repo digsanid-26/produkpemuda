@@ -20,7 +20,7 @@
 }
 
 .homepage5-body .vl-transparent-header .vl-hero-btn .head-btn .search-icon a img {
-  filter: none !important;
+  filter: brightness(0) invert(1) !important;
 }
 
 .homepage5-body .vl-transparent-header .vl-hero-btn .head-btn ul li a {
