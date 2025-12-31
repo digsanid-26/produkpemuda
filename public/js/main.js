@@ -408,7 +408,7 @@ $('.project4-main-slider').owlCarousel({
 // SLIDER //
 $(".hero5-slider-section").slick({
   autoplay:true,
-  autoplaySpeed:2500,
+  autoplaySpeed:4500,
   speed:1500,
   slidesToShow:1,
   slidesToScroll:1,
