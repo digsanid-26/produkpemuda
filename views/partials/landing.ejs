@@ -40,7 +40,9 @@
     <%- content %>
 
     <!-- Call to Action Section -->
+    <% if (!hideCta) { %>
     <%- include('./cta') %>
+    <% } %>
 
     <!-- Footer -->
     <%- include('./footer') %>

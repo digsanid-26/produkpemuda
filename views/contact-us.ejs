@@ -27,62 +27,59 @@
   <div class="contact-inner-area sp2">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <div class="maps-area">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.7073!2d106.97647!3d-6.26891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698c71a5f5f5f5%3A0x5f5f5f5f5f5f5f5f!2sRRG%206%20No.26%2C%20Jaka%20Setia%2C%20Bekasi%20Selatan%2C%20Bekasi%2C%20Jawa%20Barat%2017148!5e0!3m2!1sid!2sid!4v1704088968016!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
+        <div class="col-lg-12">
           <div class="contact-header-area heading5">
-            <h5>CONTACT US</h5>
+            <h5>HUBUNGI KAMI</h5>
             <div class="space16"></div>
             <h2>Hubungi Kami untuk Informasi Lebih Lanjut</h2>
             <div class="space16"></div>
             <p>Kami siap membantu Anda. Silakan hubungi kami untuk informasi produk, kerjasama bisnis, atau pertanyaan lainnya.</p>
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="input-area">
-                  <input type="text" placeholder="First Name*" />
+            <form action="/contact/send" method="POST" id="contactForm">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="input-area">
+                    <input type="text" name="firstName" placeholder="Nama Depan*" required />
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-lg-6">
-                <div class="input-area">
-                  <input type="text" placeholder="Last Name*" />
+                <div class="col-lg-6">
+                  <div class="input-area">
+                    <input type="text" name="lastName" placeholder="Nama Belakang*" required />
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-lg-6">
-                <div class="input-area">
-                  <input type="email" placeholder="Email Address*" />
+                <div class="col-lg-6">
+                  <div class="input-area">
+                    <input type="email" name="email" placeholder="Alamat Email*" required />
+                  </div>
                 </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="input-area">
-                  <input type="number" placeholder="Phone Number*" />
+                <div class="col-lg-6">
+                  <div class="input-area">
+                    <input type="tel" name="phone" placeholder="Nomor Telepon*" required />
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-lg-12">
-                <div class="input-area">
-                  <input type="text" placeholder="Subjects*" />
+                <div class="col-lg-12">
+                  <div class="input-area">
+                    <input type="text" name="subject" placeholder="Subjek*" required />
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-lg-12">
-                <div class="input-area">
-                  <textarea placeholder="How can we help you?*"></textarea>
+                <div class="col-lg-12">
+                  <div class="input-area">
+                    <textarea name="message" placeholder="Ada yang bisa kami bantu?*" required></textarea>
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-lg-12">
-                <div class="space16"></div>
-                <div class="input-area">
-                  <button type="submit" class="vl-btn1">SEND NOW</button>
+                <div class="col-lg-12">
+                  <div class="space16"></div>
+                  <div class="input-area">
+                    <button type="submit" class="vl-btn1">KIRIM PESAN</button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </form>
+            <div id="formMessage" style="display: none; margin-top: 20px; padding: 15px; border-radius: 8px;"></div>
           </div>
         </div>
       </div>
@@ -154,3 +151,57 @@
   </div>
   <!-- ===== CONTACT AREA ENDS ======= -->
 <%- contentFor('extra_javascript') %>
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const form = this;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const formMessage = document.getElementById('formMessage');
+  const originalBtnText = submitBtn.innerHTML;
+  
+  // Disable button and show loading
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'MENGIRIM...';
+  formMessage.style.display = 'none';
+  
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+  
+  try {
+    const response = await fetch('/contact/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    
+    const result = await response.json();
+    
+    formMessage.style.display = 'block';
+    if (result.success) {
+      formMessage.style.backgroundColor = '#d4edda';
+      formMessage.style.color = '#155724';
+      formMessage.style.border = '1px solid #c3e6cb';
+      formMessage.innerHTML = result.message;
+      form.reset();
+    } else {
+      formMessage.style.backgroundColor = '#f8d7da';
+      formMessage.style.color = '#721c24';
+      formMessage.style.border = '1px solid #f5c6cb';
+      formMessage.innerHTML = result.message;
+    }
+  } catch (error) {
+    formMessage.style.display = 'block';
+    formMessage.style.backgroundColor = '#f8d7da';
+    formMessage.style.color = '#721c24';
+    formMessage.style.border = '1px solid #f5c6cb';
+    formMessage.innerHTML = 'Terjadi kesalahan. Silakan coba lagi.';
+  }
+  
+  // Re-enable button
+  submitBtn.disabled = false;
+  submitBtn.innerHTML = originalBtnText;
+});
+</script>

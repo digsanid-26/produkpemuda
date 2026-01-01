@@ -3,6 +3,7 @@ const express = require('express');
 const route = express.Router();
 const fs = require('fs');
 const path = require('path');
+const nodemailer = require('nodemailer');
 
 const dataPath = path.join(__dirname, '../data');
 
@@ -140,13 +141,70 @@ route.get('/news/:slug', (req, res, next) => {
 // Contact Us
 route.get('/contact', (req, res, next) => {
   const settings = readJSON('settings.json');
-  res.render('contact', { settings });
+  res.render('contact', { layout: 'partials/base', settings, hideCta: true });
 })
 
 // Contact Us (New Page with proper header)
 route.get('/contact-us', (req, res, next) => {
   const settings = readJSON('settings.json');
-  res.render('contact-us', { settings });
+  res.render('contact-us', { layout: 'partials/base', settings, hideCta: true });
+})
+
+// Contact Form Submit - Send Email
+route.post('/contact/send', async (req, res) => {
+  const { firstName, lastName, email, phone, subject, message } = req.body;
+  
+  // Create transporter using cPanel email settings
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'mail.produkpemuda.com',
+    port: process.env.SMTP_PORT || 465,
+    secure: true, // use SSL
+    auth: {
+      user: process.env.SMTP_USER || 'info@produkpemuda.com',
+      pass: process.env.SMTP_PASS || '' // Set in .env file
+    }
+  });
+
+  const mailOptions = {
+    from: `"Website Contact Form" <${process.env.SMTP_USER || 'info@produkpemuda.com'}>`,
+    to: 'info@produkpemuda.com',
+    replyTo: email,
+    subject: `[Website] ${subject}`,
+    html: `
+      <h2>Pesan Baru dari Website</h2>
+      <table style="border-collapse: collapse; width: 100%;">
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;"><strong>Nama</strong></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">${firstName} ${lastName}</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;"><strong>Email</strong></td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="mailto:${email}">${email}</a></td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;"><strong>Telepon</strong></td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="tel:${phone}">${phone}</a></td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;"><strong>Subjek</strong></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">${subject}</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;"><strong>Pesan</strong></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">${message.replace(/\n/g, '<br>')}</td>
+        </tr>
+      </table>
+      <p style="margin-top: 20px; color: #666; font-size: 12px;">Email ini dikirim dari form kontak website produkpemuda.com</p>
+    `
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    res.json({ success: true, message: 'Pesan berhasil dikirim! Kami akan segera menghubungi Anda.' });
+  } catch (error) {
+    console.error('Email error:', error);
+    res.status(500).json({ success: false, message: 'Gagal mengirim pesan. Silakan coba lagi atau hubungi kami langsung.' });
+  }
 })
 
 // CSR

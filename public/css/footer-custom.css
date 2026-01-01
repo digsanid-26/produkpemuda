@@ -1,6 +1,6 @@
 /* Footer Custom Styles */
 .vl-footer1-section-area {
-    background: #2c3e50 !important;
+    background: var(--primary-color) !important;
     color: #ffffff !important;
 }
 
