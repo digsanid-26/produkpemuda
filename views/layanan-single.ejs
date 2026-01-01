@@ -54,26 +54,20 @@
 <%- contentFor('content') %>
 <%- include('partials/header/navbar5') %>
 
-<!-- Breadcrumb Area -->
-<div class="breadcrumb-section-area" style="background-image: url(<%= service.featuredImage %>); background-size: cover; background-position: center;">
+<!-- ===== HERO AREA STARTS ======= -->
+<div class="inner-pages-section-area" style="background-image: url(/img/all-images/bg/bg1.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12">
-        <div class="breadcrumb-area text-center">
+      <div class="col-lg-12 m-auto">
+        <div class="inner-header text-center">
           <h2><%= service.title %></h2>
-          <div class="space20"></div>
-          <ul>
-            <li><a href="/">Beranda</a></li>
-            <li><i class="fa-solid fa-angle-right"></i></li>
-            <li><a href="/produk">Produk</a></li>
-            <li><i class="fa-solid fa-angle-right"></i></li>
-            <li><%= service.title %></li>
-          </ul>
+          <div class="space24"></div>            
         </div>
       </div>
     </div>
   </div>
 </div>
+<!-- ===== HERO AREA ENDS ======= -->
 
 <!-- Service Single Content -->
 <div class="service-single-section sp1">
@@ -119,6 +113,17 @@
             </ul>
           </div>
 
+          <!-- Specification Section -->
+          <% if (service.specificationImage) { %>
+          <div class="sidebar-widget mb-4" style="background: #f8f9fa; padding: 25px; border-radius: 12px;">
+            <h4 style="margin-bottom: 20px; color: #1e3a8a;"><%= service.specificationLabel || 'Spesifikasi' %></h4>
+            <div class="specification-image">
+              <img src="<%= service.specificationImage %>" alt="<%= service.specificationLabel || 'Spesifikasi' %>" style="width: 100%; border-radius: 8px; cursor: pointer;" onclick="openSpecModal(this.src)">
+              <small style="display: block; margin-top: 10px; color: #666; text-align: center;">Klik gambar untuk memperbesar</small>
+            </div>
+          </div>
+          <% } %>
+
           <!-- Related Services -->
           <% if (relatedServices && relatedServices.length > 0) { %>
           <div class="sidebar-widget" style="background: #f8f9fa; padding: 25px; border-radius: 12px;">
@@ -133,17 +138,35 @@
             <% }) %>
           </div>
           <% } %>
-
-          <!-- CTA -->
-          <div class="sidebar-widget mt-4" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 25px; border-radius: 12px; text-align: center;">
-            <h4 style="color: white; margin-bottom: 15px;">Tertarik dengan produk ini?</h4>
-            <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px;">Hubungi kami untuk informasi lebih lanjut</p>
-            <a href="/contact" class="btn" style="background: white; color: #1e3a8a; padding: 12px 30px; border-radius: 8px; font-weight: 600; text-decoration: none;">Hubungi Kami</a>
-          </div>
+          
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Specification Image Modal -->
+<div id="specModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); cursor: pointer;" onclick="closeSpecModal()">
+  <span style="position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer;">&times;</span>
+  <img id="specModalImg" style="margin: auto; display: block; max-width: 90%; max-height: 90%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 8px;">
+</div>
+
 <%- contentFor('extra_javascript') %>
+<script>
+function openSpecModal(src) {
+  document.getElementById('specModal').style.display = 'block';
+  document.getElementById('specModalImg').src = src;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSpecModal() {
+  document.getElementById('specModal').style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeSpecModal();
+  }
+});
+</script>

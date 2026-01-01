@@ -119,6 +119,38 @@
                 </div>
             </div>
 
+            <!-- Specification Section -->
+            <div class="card mb-4">
+                <div class="card-header">Spesifikasi / Lampiran</div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Label Area Spesifikasi</label>
+                        <input type="text" name="specificationLabel" class="form-control" value="<%= service && service.specificationLabel ? service.specificationLabel : 'Spesifikasi' %>" placeholder="Spesifikasi">
+                        <small class="text-muted">Label untuk area spesifikasi (contoh: Nilai Gizi, Detail Layanan, Spesifikasi)</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Upload Gambar Spesifikasi</label>
+                        <input type="file" name="specificationImageFile" class="form-control" id="specImageUpload" accept="image/*">
+                        <small class="text-muted">Format: JPG, PNG, GIF, WebP. Max 5MB.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Atau URL Gambar Spesifikasi</label>
+                        <input type="text" name="specificationImage" class="form-control" id="specificationImageInput" value="<%= service && service.specificationImage ? service.specificationImage : '' %>" placeholder="/img/uploads/spesifikasi.jpg">
+                    </div>
+                    <% if (service && service.specificationImage) { %>
+                    <div class="mt-2">
+                        <label class="form-label">Preview Spesifikasi:</label>
+                        <img src="<%= service.specificationImage %>" alt="Preview Spesifikasi" id="specImagePreview" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <% } else { %>
+                    <div class="mt-2" id="specPreviewContainer" style="display: none;">
+                        <label class="form-label">Preview Spesifikasi:</label>
+                        <img src="" alt="Preview Spesifikasi" id="specImagePreview" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+
             <!-- Category & Tags -->
             <div class="card mb-4">
                 <div class="card-header">Kategori & Tag</div>
@@ -153,5 +185,28 @@
 <script>
 document.getElementById('featuredImageInput').addEventListener('change', function() {
     document.getElementById('imagePreview').src = this.value;
+});
+
+document.getElementById('specificationImageInput').addEventListener('change', function() {
+    var preview = document.getElementById('specImagePreview');
+    var container = document.getElementById('specPreviewContainer');
+    if (this.value) {
+        preview.src = this.value;
+        if (container) container.style.display = 'block';
+    }
+});
+
+document.getElementById('specImageUpload').addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var preview = document.getElementById('specImagePreview');
+            var container = document.getElementById('specPreviewContainer');
+            preview.src = e.target.result;
+            if (container) container.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
 });
 </script>

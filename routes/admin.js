@@ -489,6 +489,13 @@ router.post('/services/create', isAuthenticated, (req, res) => {
         if (uploadedPath) featuredImage = uploadedPath;
     }
     
+    // Handle specification image upload
+    let specificationImage = req.body.specificationImage || '';
+    if (req.files && req.files.specificationImageFile) {
+        const uploadedPath = handleImageUpload(req.files.specificationImageFile, '/img/all-images/service/specs', 'spec');
+        if (uploadedPath) specificationImage = uploadedPath;
+    }
+    
     const newService = {
         id: newId,
         title: req.body.title,
@@ -499,6 +506,8 @@ router.post('/services/create', isAuthenticated, (req, res) => {
         icon: req.body.icon || '/img/icons/service16.svg',
         categoryId: parseInt(req.body.categoryId),
         tags: tagsArray,
+        specificationLabel: req.body.specificationLabel || 'Spesifikasi',
+        specificationImage: specificationImage,
         seo: {
             metaTitle: req.body.seo_metaTitle || '',
             metaDescription: req.body.seo_metaDescription || '',
@@ -555,6 +564,13 @@ router.post('/services/edit/:id', isAuthenticated, (req, res) => {
             if (uploadedPath) featuredImage = uploadedPath;
         }
         
+        // Handle specification image upload for edit
+        let specificationImage = req.body.specificationImage || services[index].specificationImage || '';
+        if (req.files && req.files.specificationImageFile) {
+            const uploadedPath = handleImageUpload(req.files.specificationImageFile, '/img/all-images/service/specs', 'spec');
+            if (uploadedPath) specificationImage = uploadedPath;
+        }
+        
         services[index] = {
             ...services[index],
             title: req.body.title,
@@ -565,6 +581,8 @@ router.post('/services/edit/:id', isAuthenticated, (req, res) => {
             icon: req.body.icon || services[index].icon,
             categoryId: parseInt(req.body.categoryId),
             tags: tagsArray,
+            specificationLabel: req.body.specificationLabel || 'Spesifikasi',
+            specificationImage: specificationImage,
             seo: {
                 metaTitle: req.body.seo_metaTitle || '',
                 metaDescription: req.body.seo_metaDescription || '',

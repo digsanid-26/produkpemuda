@@ -5,7 +5,7 @@
     "slug": "minuman-asem-jawa",
     "shortDescription": "Minuman tradisional dengan cita rasa khas, diolah secara higienis, dan dikemas modern.",
     "content": "<p>Minuman Asem Jawa adalah produk unggulan kami yang dibuat dari bahan-bahan alami pilihan. Diolah dengan proses higienis dan dikemas secara modern untuk menjaga kualitas dan kesegaran.</p>",
-    "featuredImage": "/img/all-images/project/project-img17.png",
+    "featuredImage": "/img/all-images/project/project-img19.png",
     "icon": "/img/icons/service16.svg",
     "categoryId": 1,
     "categoryTag": "#Minuman Tradisional",
@@ -25,7 +25,7 @@
     "order": 1,
     "published": true,
     "createdAt": "2024-01-01",
-    "updatedAt": "2024-01-01"
+    "updatedAt": "2026-01-01"
   },
   {
     "id": 2,
@@ -33,7 +33,7 @@
     "slug": "gula-jawa-premium",
     "shortDescription": "Produk pemanis alami dengan kualitas tinggi, cocok untuk kebutuhan dapur dan berbagai olahan kuliner.",
     "content": "<p>Gula Jawa premium kami diproduksi dari nira kelapa pilihan dengan proses tradisional yang terjaga kualitasnya. Cocok untuk berbagai kebutuhan kuliner dan minuman.</p>",
-    "featuredImage": "/img/all-images/project/project-img18.png",
+    "featuredImage": "/img/all-images/service/service-img2.png",
     "icon": "/img/icons/service16.svg",
     "categoryId": 1,
     "categoryTag": "#Pemanis Alami",
@@ -53,7 +53,9 @@
     "order": 2,
     "published": true,
     "createdAt": "2024-01-01",
-    "updatedAt": "2025-12-30"
+    "updatedAt": "2026-01-01",
+    "specificationLabel": "Nilai Gizi",
+    "specificationImage": "/img/all-images/service/specs/spec-1767256804961.png"
   },
   {
     "id": 3,

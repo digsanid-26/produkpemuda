@@ -185,3 +185,29 @@ header.homepage5-body .header-sticky .head-btn ul li a i {
 .homepage5-body .vl-header-action-item button {
   color: var(--white) !important;
 }
+
+/* FAQ Active Accordion */
+.faq5-section-area .accordion-button:not(.collapsed) {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+}
+
+.faq5-section-area .accordion-button:not(.collapsed)::after {
+  filter: brightness(0) invert(1) !important;
+}
+.faq5-section-area .accordion-item {
+            padding: 0;
+            border-radius: 8px;
+            background: var(--primary-color) !important;
+}
+.faq5-section-area .accordion-item:has(.accordion-button:not(.collapsed)) {
+  background-color: var(--primary-color) !important;
+}
+
+.faq5-section-area .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-body {
+  background-color: var(--primary-color) !important;
+}
+
+.faq5-section-area .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-body p {
+  color: #fff !important;
+}

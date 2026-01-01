@@ -89,7 +89,7 @@
                     filter: brightness(0);
                 }
                 &:not(.collapsed) {
-                    background: none;
+                    background: var(--primary-color);
                     transition: all .4s;
                     border: none;
                     color: var(--ztc-text-text-1);
