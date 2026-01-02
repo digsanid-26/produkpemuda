@@ -3,19 +3,208 @@
 <%- contentFor('body_attribute') %>
 
 <%- contentFor('extra_css') %>
+<style>
+  .csr-hero-section {
+    background: var(--primary-color, #4A0E19);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 150px;
+    padding-bottom: 100px;
+  }
+  .csr-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/img/all-images/bg/hero-bg1.png') center/cover no-repeat;
+    opacity: 0.1;
+  }
+  .csr-hero-heading h5 {
+    color: var(--accent-color, #C6A667);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .csr-hero-heading h1 {
+    color: #fff;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .csr-hero-heading p {
+    color: var(--secondary-color, #F7F5F2);
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+  .csr-focus-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    height: 100%;
+  }
+  .csr-focus-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(74,14,25,0.15);
+  }
+  .csr-focus-card .card-img {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+  }
+  .csr-focus-card .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .csr-focus-card:hover .card-img img {
+    transform: scale(1.1);
+  }
+  .csr-focus-card .card-img .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(74,14,25,0.7));
+  }
+  .csr-focus-card .card-content {
+    padding: 28px;
+  }
+  .csr-focus-card .card-content h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color, #4A0E19);
+    margin-bottom: 12px;
+  }
+  .csr-focus-card .card-content p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .csr-focus-card .learn-more {
+    color: var(--primary-color, #4A0E19);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
+  }
+  .csr-focus-card .learn-more:hover {
+    gap: 12px;
+    color: var(--accent-color, #C6A667);
+  }
+  .csr-impact-section {
+    background: linear-gradient(135deg, #F7F5F2 0%, #efe9df 100%);
+  }
+  .csr-impact-box {
+    text-align: center;
+    padding: 40px 30px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+  }
+  .csr-impact-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(74,14,25,0.1);
+  }
+  .csr-impact-box .number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-color, #4A0E19);
+    line-height: 1;
+  }
+  .csr-impact-box .label {
+    color: #666;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  .csr-values-card {
+    background: #fff;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    height: 100%;
+    border-left: 4px solid var(--accent-color, #C6A667);
+    transition: all 0.3s ease;
+  }
+  .csr-values-card:hover {
+    box-shadow: 0 15px 40px rgba(74,14,25,0.1);
+  }
+  .csr-values-card .icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color, #4A0E19) 0%, #6b1a28 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .csr-values-card .icon i {
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  .csr-values-card h5 {
+    font-weight: 700;
+    color: var(--primary-color, #4A0E19);
+    margin-bottom: 12px;
+  }
+  .csr-values-card p {
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .csr-cta-section {
+    background: linear-gradient(135deg, var(--primary-color, #4A0E19) 0%, #2d0810 100%);
+    position: relative;
+  }
+  .csr-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/img/all-images/bg/bg5.png') center/cover no-repeat;
+    opacity: 0.1;
+  }
+  .heading4 h5 {
+    color: var(--primary-color, #4A0E19);
+  }
+</style>
 
 <%- contentFor('content') %>
   <%- include('partials/header/navbar5') %>
 
   <!-- ===== HERO AREA STARTS ======= -->
-  <div class="inner-pages-section-area" style="background-image: url(/img/all-images/bg/hero-bg1.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 m-auto">
-          <div class="inner-header text-center">
-            <h2>Corporate Social Responsibility</h2>
-            <div class="space24"></div>
-            <a href="/">Home <i class="fa-solid fa-angle-right"></i> <span>CSR</span></a>
+  <div class="csr-hero-section">
+    <div class="container position-relative">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <div class="csr-hero-heading">
+            <h5 data-aos="fade-left" data-aos-duration="800">Tanggung Jawab Sosial Perusahaan</h5>
+            <div class="space20"></div>
+            <h1 class="text-anime-style-3">Masyarakat & Komunitas Adalah Prioritas Kami</h1>
+            <div class="space20"></div>
+            <p data-aos="fade-left" data-aos-duration="900">PT Produk Pemuda Santara berkomitmen untuk memberikan dampak positif bagi masyarakat dan lingkungan sekitar. Kami percaya bahwa kesuksesan bisnis harus berjalan seiring dengan tanggung jawab sosial.</p>
+            <div class="space32"></div>            
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="images-area" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="img1 image-anime reveal">
+              <img src="/img/all-images/about/about-img6.png" alt="CSR PT Produk Pemuda Santara" style="border-radius: 20px;">
+            </div>
           </div>
         </div>
       </div>
@@ -23,175 +212,143 @@
   </div>
   <!-- ===== HERO AREA ENDS ======= -->
 
-<!--===== CSR INTRO STARTS =======-->
-<div class="vl-about-section-area sp1">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <div class="vl-about-img-box">
-          <div class="img1">
-            <img src="/img/all-images/about/about-img1.png" alt="CSR PT Produk Pemuda Santara">
+  <!-- ===== FOCUS AREA STARTS ======= -->
+  <div class="service4-section-area sp2" id="focus-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 m-auto">
+          <div class="heading4 text-center space-margin60">
+            <h5 data-aos="fade-left" data-aos-duration="800">Area Fokus Sosial</h5>
+            <div class="space16"></div>
+            <h2 class="text-anime-style-3">Komitmen Kami untuk Indonesia</h2>
+            <div class="space16"></div>
+            <p data-aos="fade-left" data-aos-duration="900">Kami fokus pada empat pilar utama yang menjadi fondasi program tanggung jawab sosial perusahaan kami.</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
-        <div class="vl-about-content-box">
-          <div class="vl-section-title">
-            <h5 class="vl-subtitle">Tanggung Jawab Sosial</h5>
-            <div class="space16"></div>
-            <h2 class="vl-section-heading">Komitmen CSR Kami</h2>
-            <div class="space16"></div>
-            <p>PT Produk Pemuda Santara berkomitmen untuk memberikan dampak positif bagi masyarakat dan lingkungan sekitar. Sebagai perusahaan yang berdiri dengan semangat pemberdayaan pemuda Indonesia, kami percaya bahwa kesuksesan bisnis harus berjalan seiring dengan tanggung jawab sosial.</p>
-            <div class="space16"></div>
-            <p>Melalui berbagai program CSR, kami berupaya untuk berkontribusi dalam pembangunan komunitas lokal, pelestarian lingkungan, dan pemberdayaan generasi muda Indonesia.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--===== CSR INTRO ENDS =======-->
 
-<!--===== CSR PROGRAMS STARTS =======-->
-<div class="vl-service-section-area sp1 bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <div class="vl-section-title">
-          <h5 class="vl-subtitle">Program CSR</h5>
-          <div class="space16"></div>
-          <h2 class="vl-section-heading">Fokus Program Kami</h2>
-        </div>
-      </div>
-    </div>
-    <div class="space40"></div>
-    <div class="row">
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="vl-service-box text-center p-4">
-          <div class="icon mb-3">
-            <i class="fa-solid fa-users fa-3x text-primary"></i>
+      <div class="row">
+        <% if (typeof csrFocus !== 'undefined' && csrFocus.length > 0) { %>
+          <% csrFocus.forEach((item, index) => { %>
+            <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="<%= 800 + (index * 100) %>">
+              <div class="csr-focus-card">
+                <div class="card-img">
+                  <img src="<%= item.image %>" alt="<%= item.title %>">
+                  <div class="overlay"></div>
+                </div>
+                <div class="card-content">
+                  <h4><%= item.title %></h4>
+                  <p><%= item.description %></p>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        <% } else { %>
+          <div class="col-12 text-center py-5">
+            <p class="text-muted">Belum ada fokus sosial yang ditampilkan.</p>
           </div>
-          <h4>Pemberdayaan Pemuda</h4>
-          <p>Memberikan pelatihan dan kesempatan kerja bagi pemuda Indonesia untuk mengembangkan keterampilan dan karir mereka.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="vl-service-box text-center p-4">
-          <div class="icon mb-3">
-            <i class="fa-solid fa-leaf fa-3x text-success"></i>
-          </div>
-          <h4>Pelestarian Lingkungan</h4>
-          <p>Menggunakan bahan baku lokal yang berkelanjutan dan menerapkan praktik produksi ramah lingkungan.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="vl-service-box text-center p-4">
-          <div class="icon mb-3">
-            <i class="fa-solid fa-hand-holding-heart fa-3x text-danger"></i>
-          </div>
-          <h4>Dukungan Komunitas Lokal</h4>
-          <p>Bermitra dengan petani dan produsen lokal untuk mendukung perekonomian masyarakat sekitar.</p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="vl-service-box text-center p-4">
-          <div class="icon mb-3">
-            <i class="fa-solid fa-graduation-cap fa-3x text-warning"></i>
-          </div>
-          <h4>Pendidikan</h4>
-          <p>Mendukung program pendidikan dan pelatihan untuk meningkatkan kualitas sumber daya manusia Indonesia.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="vl-service-box text-center p-4">
-          <div class="icon mb-3">
-            <i class="fa-solid fa-seedling fa-3x text-info"></i>
-          </div>
-          <h4>Pertanian Berkelanjutan</h4>
-          <p>Mendukung praktik pertanian berkelanjutan untuk menjaga kualitas bahan baku dan kelestarian alam.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="vl-service-box text-center p-4">
-          <div class="icon mb-3">
-            <i class="fa-solid fa-landmark fa-3x text-secondary"></i>
-          </div>
-          <h4>Pelestarian Budaya</h4>
-          <p>Melestarikan tradisi kuliner Nusantara melalui produk-produk yang mengangkat cita rasa tradisional.</p>
-        </div>
+        <% } %>
       </div>
     </div>
   </div>
-</div>
-<!--===== CSR PROGRAMS ENDS =======-->
+  <!-- ===== FOCUS AREA ENDS ======= -->
 
-<!--===== CSR VALUES STARTS =======-->
-<div class="vl-about-section-area sp1">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <div class="vl-section-title">
-          <h5 class="vl-subtitle">Nilai-Nilai CSR</h5>
-          <div class="space16"></div>
-          <h2 class="vl-section-heading">Prinsip Tanggung Jawab Sosial Kami</h2>
+  <!-- ===== IMPACT AREA STARTS ======= -->
+  <div class="csr-impact-section sp1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 m-auto">
+          <div class="heading4 text-center space-margin60">
+            <h5 data-aos="fade-left" data-aos-duration="800">Dampak Kami</h5>
+            <div class="space16"></div>
+            <h2 class="text-anime-style-3">Kontribusi Nyata untuk Indonesia</h2>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="space40"></div>
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <div class="d-flex align-items-start">
-              <div class="me-3">
-                <i class="fa-solid fa-check-circle fa-2x text-success"></i>
-              </div>
-              <div>
-                <h5>Transparansi</h5>
-                <p>Menjalankan semua program CSR dengan keterbukaan dan akuntabilitas.</p>
-              </div>
-            </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in-up" data-aos-duration="800">
+          <div class="csr-impact-box">
+            <div class="number">500+</div>
+            <div class="label">Pemuda Diberdayakan</div>
           </div>
-          <div class="col-md-6 mb-4">
-            <div class="d-flex align-items-start">
-              <div class="me-3">
-                <i class="fa-solid fa-check-circle fa-2x text-success"></i>
-              </div>
-              <div>
-                <h5>Keberlanjutan</h5>
-                <p>Memastikan setiap program memberikan dampak jangka panjang yang positif.</p>
-              </div>
-            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in-up" data-aos-duration="900">
+          <div class="csr-impact-box">
+            <div class="number">50+</div>
+            <div class="label">Mitra Petani Lokal</div>
           </div>
-          <div class="col-md-6 mb-4">
-            <div class="d-flex align-items-start">
-              <div class="me-3">
-                <i class="fa-solid fa-check-circle fa-2x text-success"></i>
-              </div>
-              <div>
-                <h5>Kolaborasi</h5>
-                <p>Bekerja sama dengan berbagai pihak untuk memaksimalkan dampak sosial.</p>
-              </div>
-            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in-up" data-aos-duration="1000">
+          <div class="csr-impact-box">
+            <div class="number">10+</div>
+            <div class="label">Komunitas Didukung</div>
           </div>
-          <div class="col-md-6 mb-4">
-            <div class="d-flex align-items-start">
-              <div class="me-3">
-                <i class="fa-solid fa-check-circle fa-2x text-success"></i>
-              </div>
-              <div>
-                <h5>Inklusivitas</h5>
-                <p>Memastikan program CSR menjangkau semua lapisan masyarakat.</p>
-              </div>
-            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in-up" data-aos-duration="1100">
+          <div class="csr-impact-box">
+            <div class="number">100%</div>
+            <div class="label">Bahan Baku Lokal</div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<!--===== CSR VALUES ENDS =======-->
+  <!-- ===== IMPACT AREA ENDS ======= -->
+
+  <!-- ===== VALUES AREA STARTS ======= -->
+  <div class="about4-section-area sp1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 m-auto">
+          <div class="heading4 text-center space-margin60">
+            <h5 data-aos="fade-left" data-aos-duration="800">Nilai-Nilai Kami</h5>
+            <div class="space16"></div>
+            <h2 class="text-anime-style-3">Prinsip Tanggung Jawab Sosial</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="800">
+          <div class="csr-values-card">
+            <div class="icon">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <h5>Transparansi</h5>
+            <p>Menjalankan semua program CSR dengan keterbukaan dan akuntabilitas penuh kepada semua pemangku kepentingan.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="900">
+          <div class="csr-values-card">
+            <div class="icon">
+              <i class="fa-solid fa-infinity"></i>
+            </div>
+            <h5>Keberlanjutan</h5>
+            <p>Memastikan setiap program memberikan dampak jangka panjang yang positif bagi masyarakat dan lingkungan.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1000">
+          <div class="csr-values-card">
+            <div class="icon">
+              <i class="fa-solid fa-handshake"></i>
+            </div>
+            <h5>Kolaborasi</h5>
+            <p>Bekerja sama dengan berbagai pihak untuk memaksimalkan dampak sosial dan menciptakan sinergi positif.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1100">
+          <div class="csr-values-card">
+            <div class="icon">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <h5>Inklusivitas</h5>
+            <p>Memastikan program CSR menjangkau semua lapisan masyarakat tanpa diskriminasi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ===== VALUES AREA ENDS ======= -->  
 
 <%- contentFor('extra_javascript') %>

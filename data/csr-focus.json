@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Pemberdayaan Pemuda",
+    "description": "Memberikan pelatihan, kesempatan kerja, dan dukungan bagi pemuda Indonesia untuk mengembangkan keterampilan dan karir mereka. Kami percaya pemuda adalah masa depan bangsa.",
+    "image": "/img/all-images/service/service-img5.png",
+    "order": 1,
+    "published": true,
+    "createdAt": "2025-01-02",
+    "updatedAt": "2025-01-02"
+  },
+  {
+    "id": 2,
+    "title": "Masyarakat & Komunitas",
+    "description": "Mendukung komunitas sekitar untuk meraih lebih banyak hal, terutama dalam masa-masa sulit. Kami bermitra dengan petani dan produsen lokal untuk mendukung perekonomian masyarakat.",
+    "image": "/img/all-images/project/project-img11.png",
+    "order": 2,
+    "published": true,
+    "createdAt": "2025-01-02",
+    "updatedAt": "2025-01-02"
+  },
+  {
+    "id": 3,
+    "title": "Pelestarian Lingkungan",
+    "description": "Menggunakan bahan baku lokal yang berkelanjutan dan menerapkan praktik produksi ramah lingkungan. Kami berkomitmen untuk menjaga kelestarian alam Indonesia.",
+    "image": "/img/all-images/project/project-img12.png",
+    "order": 3,
+    "published": true,
+    "createdAt": "2025-01-02",
+    "updatedAt": "2025-01-02"
+  },
+  {
+    "id": 4,
+    "title": "Pelestarian Budaya",
+    "description": "Melestarikan tradisi kuliner Nusantara melalui produk-produk yang mengangkat cita rasa tradisional. Warisan budaya Indonesia adalah kekayaan yang harus dijaga.",
+    "image": "/img/all-images/project/project-img13.png",
+    "order": 4,
+    "published": true,
+    "createdAt": "2025-01-02",
+    "updatedAt": "2025-01-02"
+  }
+]

@@ -210,7 +210,8 @@ route.post('/contact/send', async (req, res) => {
 // CSR
 route.get('/csr', (req, res, next) => {
   const settings = readJSON('settings.json');
-  res.render('csr', { layout: 'partials/base', settings });
+  const csrFocus = readJSON('csr-focus.json').filter(c => c.published).sort((a, b) => a.order - b.order);
+  res.render('csr', { layout: 'partials/base', settings, csrFocus });
 })
 
 // Business Card Profile (tidak ada di menu, untuk kartu nama)

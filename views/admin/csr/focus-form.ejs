@@ -1,0 +1,90 @@
+<div class="top-bar">
+    <h1 class="page-title"><%= action === 'create' ? 'Tambah' : 'Edit' %> Fokus Sosial</h1>
+    <a href="/admin/csr-focus" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Kembali
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form action="/admin/csr-focus/<%= action === 'create' ? 'create' : 'edit/' + item.id %>" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Judul <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="title" name="title" 
+                               value="<%= item ? item.title : '' %>" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Deskripsi <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="description" name="description" rows="5" required><%= item ? item.description : '' %></textarea>
+                        <small class="text-muted">Jelaskan fokus sosial ini secara singkat dan jelas.</small>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="image" class="form-label">URL Gambar</label>
+                        <input type="text" class="form-control" id="image" name="image" 
+                               value="<%= item ? item.image : '/img/all-images/service/service-img5.png' %>"
+                               placeholder="/img/all-images/csr/image.png">
+                        <small class="text-muted">Masukkan URL gambar atau upload file di bawah.</small>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="imageFile" class="form-label">Upload Gambar</label>
+                        <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*">
+                        <small class="text-muted">Format: JPG, PNG, WebP. Ukuran disarankan: 600x400px</small>
+                    </div>
+                    
+                    <% if (item && item.image) { %>
+                        <div class="mb-3">
+                            <label class="form-label">Preview Gambar Saat Ini</label>
+                            <div>
+                                <img src="<%= item.image %>" alt="Preview" style="max-width: 300px; border-radius: 8px;">
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h6 class="card-title mb-3">Pengaturan</h6>
+                            
+                            <div class="mb-3">
+                                <label for="order" class="form-label">Urutan</label>
+                                <input type="number" class="form-control" id="order" name="order" 
+                                       value="<%= item ? item.order : 1 %>" min="1">
+                                <small class="text-muted">Urutan tampil di halaman CSR</small>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="published" name="published" 
+                                           <%= item && item.published ? 'checked' : (action === 'create' ? 'checked' : '') %>>
+                                    <label class="form-check-label" for="published">Publikasikan</label>
+                                </div>
+                                <small class="text-muted">Centang untuk menampilkan di website</small>
+                            </div>
+                            
+                            <% if (item) { %>
+                                <hr>
+                                <small class="text-muted d-block">Dibuat: <%= item.createdAt %></small>
+                                <small class="text-muted d-block">Diupdate: <%= item.updatedAt %></small>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-lg"></i> <%= action === 'create' ? 'Simpan' : 'Update' %>
+                </button>
+                <a href="/admin/csr-focus" class="btn btn-outline-secondary">Batal</a>
+            </div>
+        </form>
+    </div>
+</div>

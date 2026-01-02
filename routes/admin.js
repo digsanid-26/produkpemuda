@@ -998,6 +998,105 @@ router.get('/project-tags/delete/:id', isAuthenticated, (req, res) => {
     res.redirect('/admin/project-tags');
 });
 
+// CSR Focus CRUD
+router.get('/csr-focus', isAuthenticated, (req, res) => {
+    const csrFocus = readJSON('csr-focus.json');
+    res.render('admin/csr/focus-index', {
+        layout: 'admin/layout',
+        admin: req.session.admin,
+        csrFocus: csrFocus.sort((a, b) => a.order - b.order),
+        page: 'csr-focus'
+    });
+});
+
+router.get('/csr-focus/create', isAuthenticated, (req, res) => {
+    res.render('admin/csr/focus-form', {
+        layout: 'admin/layout',
+        admin: req.session.admin,
+        item: null,
+        action: 'create',
+        page: 'csr-focus'
+    });
+});
+
+router.post('/csr-focus/create', isAuthenticated, (req, res) => {
+    const csrFocus = readJSON('csr-focus.json');
+    const newId = csrFocus.length > 0 ? Math.max(...csrFocus.map(c => c.id)) + 1 : 1;
+    
+    // Handle image upload
+    let image = req.body.image || '/img/all-images/service/service-img5.png';
+    if (req.files && req.files.imageFile) {
+        const uploadedPath = handleImageUpload(req.files.imageFile, '/img/all-images/csr', 'csr-focus');
+        if (uploadedPath) image = uploadedPath;
+    }
+    
+    const newItem = {
+        id: newId,
+        title: req.body.title,
+        description: req.body.description,
+        image: image,
+        order: parseInt(req.body.order) || 1,
+        published: req.body.published === 'on',
+        createdAt: new Date().toISOString().split('T')[0],
+        updatedAt: new Date().toISOString().split('T')[0]
+    };
+    
+    csrFocus.push(newItem);
+    writeJSON('csr-focus.json', csrFocus);
+    res.redirect('/admin/csr-focus');
+});
+
+router.get('/csr-focus/edit/:id', isAuthenticated, (req, res) => {
+    const csrFocus = readJSON('csr-focus.json');
+    const item = csrFocus.find(c => c.id === parseInt(req.params.id));
+    
+    if (!item) {
+        return res.redirect('/admin/csr-focus');
+    }
+    
+    res.render('admin/csr/focus-form', {
+        layout: 'admin/layout',
+        admin: req.session.admin,
+        item,
+        action: 'edit',
+        page: 'csr-focus'
+    });
+});
+
+router.post('/csr-focus/edit/:id', isAuthenticated, (req, res) => {
+    const csrFocus = readJSON('csr-focus.json');
+    const index = csrFocus.findIndex(c => c.id === parseInt(req.params.id));
+    
+    if (index !== -1) {
+        // Handle image upload
+        let image = req.body.image || csrFocus[index].image;
+        if (req.files && req.files.imageFile) {
+            const uploadedPath = handleImageUpload(req.files.imageFile, '/img/all-images/csr', 'csr-focus');
+            if (uploadedPath) image = uploadedPath;
+        }
+        
+        csrFocus[index] = {
+            ...csrFocus[index],
+            title: req.body.title,
+            description: req.body.description,
+            image: image,
+            order: parseInt(req.body.order) || 1,
+            published: req.body.published === 'on',
+            updatedAt: new Date().toISOString().split('T')[0]
+        };
+        writeJSON('csr-focus.json', csrFocus);
+    }
+    
+    res.redirect('/admin/csr-focus');
+});
+
+router.get('/csr-focus/delete/:id', isAuthenticated, (req, res) => {
+    let csrFocus = readJSON('csr-focus.json');
+    csrFocus = csrFocus.filter(c => c.id !== parseInt(req.params.id));
+    writeJSON('csr-focus.json', csrFocus);
+    res.redirect('/admin/csr-focus');
+});
+
 // Settings
 router.get('/settings', isAuthenticated, (req, res) => {
     const settings = readJSON('settings.json');
